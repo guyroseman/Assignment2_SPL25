@@ -33,6 +33,8 @@ public class LinearAlgebraEngine {
 
     public List<Runnable> createMultiplyTasks() {
         // TODO: return tasks that perform row × matrix multiplication
+
+        // check read lock responsibillity upon "source" matrix in vecmatmul
         return null;
     }
 
