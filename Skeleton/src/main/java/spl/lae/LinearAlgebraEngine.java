@@ -4,6 +4,7 @@ import parser.*;
 import memory.*;
 import scheduling.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LinearAlgebraEngine {
@@ -13,43 +14,150 @@ public class LinearAlgebraEngine {
     private TiredExecutor executor;
 
     public LinearAlgebraEngine(int numThreads) {
-        // TODO: create executor with given thread count
+        this.executor = new TiredExecutor(numThreads);
     }
 
     public ComputationNode run(ComputationNode computationRoot) {
-        // TODO: resolve computation tree step by step until final matrix is produced
-        return null;
+        while (computationRoot.findResolvable() != null) {
+            ComputationNode resolvableNode = computationRoot.findResolvable();
+            loadAndCompute(resolvableNode);
+            computationRoot.resolve(leftMatrix.readRowMajor());
+            computationRoot.associativeNesting();
+        }
+        return computationRoot;
     }
 
     public void loadAndCompute(ComputationNode node) {
         // TODO: load operand matrices
         // TODO: create compute tasks & submit tasks to executor
+        switch (node.getNodeType()) {
+            case ADD:
+                leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
+                rightMatrix.loadRowMajor(node.getChildren().get(1).getMatrix());
+                for(int i=0;i<leftMatrix.length();i++){
+                    if(leftMatrix.get(i).length() != rightMatrix.get(i).length()){ // get readlock?
+                        throw new IllegalArgumentException("Matrix dimensions do not match for addition.");
+                    }
+                }
+                executor.submitAll(createAddTasks());
+                break;
+            case MULTIPLY:
+                leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
+                rightMatrix.loadColumnMajor(node.getChildren().get(1).getMatrix());
+                 for(int i=0;i<leftMatrix.length();i++){
+                    if(leftMatrix.get(i).length() != rightMatrix.get(i).length()){
+                        throw new IllegalArgumentException("Matrix dimensions do not match for multiplication.");
+                    }
+                }
+                executor.submitAll(createMultiplyTasks());
+                break;
+            case NEGATE:
+                leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
+                executor.submitAll(createNegateTasks());
+                break;
+            case TRANSPOSE:
+                leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
+                executor.submitAll(createTransposeTasks());
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported operation: " + node.getNodeType());
+        }
     }
 
     public List<Runnable> createAddTasks() {
-        // TODO: return tasks that perform row-wise addition
-        return null;
+        // Each task adds one row from rightMatrix to the corresponding row in leftMatrix
+        List<Runnable> tasks = new ArrayList<>();
+        int len = leftMatrix.length(); 
+
+        
+        for (int i = 0; i < len; i++) {
+            final SharedVector targetVector = leftMatrix.get(i);
+            final SharedVector sourceVector = rightMatrix.get(i);
+            
+            Runnable task = () -> {
+                // We must acquire the Write Lock on the target before calling the method
+                targetVector.writeLock();
+                try {
+                    // .add() internally acquires Read Lock on sourceVector
+                    targetVector.add(sourceVector);
+                } finally {
+                    targetVector.writeUnlock();
+                }
+            };
+            tasks.add(task);
+        }
+        return tasks;
     }
 
     public List<Runnable> createMultiplyTasks() {
-        // TODO: return tasks that perform row × matrix multiplication
+        // Each task multiplies one row from leftMatrix with rightMatrix
+        List<Runnable> tasks = new ArrayList<>();
+        int len = leftMatrix.length();
 
+        for (int i = 0; i < len; i++) {
+            final SharedVector targetVector = leftMatrix.get(i);
+            final SharedMatrix sourceMatrix = rightMatrix;
+
+            Runnable task = () -> {
+                // We must acquire the Write Lock on the target before calling the method
+                targetVector.writeLock();
+                try {
+                    // .vecMatMul() internally acquires Read Lock on sourceMatrix
+                    targetVector.vecMatMul(sourceMatrix);
+                } finally {
+                    targetVector.writeUnlock();
+                }
+            };
+            tasks.add(task);
+        }
+            return tasks;
         // check read lock responsibillity upon "source" matrix in vecmatmul
-        return null;
     }
 
     public List<Runnable> createNegateTasks() {
-        // TODO: return tasks that negate rows
-        return null;
+        List<Runnable> tasks = new ArrayList<>();
+        int len = leftMatrix.length();
+
+        for(int i = 0; i < len; i++){
+            final SharedVector targetVector = leftMatrix.get(i);
+
+            Runnable task = () -> {
+                targetVector.writeLock();
+                try{
+                    targetVector.negate();
+                }finally{
+                    targetVector.writeUnlock();
+                }
+            };
+            tasks.add(task);
+        }
+        return tasks;
     }
 
     public List<Runnable> createTransposeTasks() {
-        // TODO: return tasks that transpose rows
-        return null;
+        List<Runnable> tasks = new ArrayList<>();
+        int len = leftMatrix.length();
+
+        for(int i = 0; i < len; i++){
+            final SharedVector targetVector = leftMatrix.get(i);
+
+            Runnable task = () -> {
+                targetVector.writeLock();
+                try{
+                    targetVector.transpose();
+                }finally{
+                    targetVector.writeUnlock();
+                }
+            };
+            tasks.add(task);
+        }
+        return tasks;
     }
 
     public String getWorkerReport() {
-        // TODO: return summary of worker activity
-        return null;
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Worker Activity Report ---\n");
+        sb.append(executor.getWorkerReport());
+        return sb.toString();
     }
 }

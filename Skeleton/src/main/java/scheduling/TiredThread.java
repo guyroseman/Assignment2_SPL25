@@ -56,7 +56,9 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
      * it throws IllegalStateException.
      */
     public void newTask(Runnable task) {
-       // TODO
+       if(!handoff.offer(task)){
+        throw new IllegalStateException("Worker is not ready to accept a new task");
+       }
     }
 
     /**
@@ -64,17 +66,56 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
      * Inserts a poison pill so the worker wakes up and exits.
      */
     public void shutdown() {
-       // TODO
+        // turn off alive flag
+        alive.set(false);
+        try {
+            // insert poison pill to wake up the thread if it's waiting
+           handoff.put(POISON_PILL);
+       } catch (InterruptedException e) {
+            // interrupt current thread if unable to insert poison pill
+           Thread.currentThread().interrupt();
+       }
     }
 
     @Override
     public void run() {
-       // TODO
+       while(alive.get()){
+        try {
+            Runnable task = handoff.take();
+            
+            //Calculate long delta of idle time and update time idle
+            long idleDuration = System.nanoTime() - idleStartTime.get();
+            timeIdle.addAndGet(idleDuration);
+
+            // Check if shutdown
+            if(task == POISON_PILL){
+                break;
+            }
+
+            // Excute task and measure time used
+            busy.set(true);
+            long startTime = System.nanoTime();
+            task.run();
+            long endTime = System.nanoTime();
+            busy.set(false);
+
+            // update time used + idele start time 
+            timeUsed.addAndGet(endTime - startTime);
+            idleStartTime.set(endTime);
+
+       } catch (InterruptedException e) {
+            // interrupt current thread if unable to take task
+           Thread.currentThread().interrupt();
+       }
+       }
     }
 
     @Override
     public int compareTo(TiredThread o) {
-        // TODO
+        if(this.getFatigue() > o.getFatigue())
+            return 1;
+        else if (this.getFatigue() < o.getFatigue())
+            return -1;
         return 0;
     }
 }

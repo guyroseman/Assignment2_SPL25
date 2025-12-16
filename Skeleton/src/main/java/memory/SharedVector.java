@@ -9,28 +9,15 @@ public class SharedVector {
     private ReadWriteLock lock = new java.util.concurrent.locks.ReentrantReadWriteLock();
 
     public SharedVector(double[] vector, VectorOrientation orientation) {
-        // TODO: store vector data and its orientation
         this.vector = vector;
         this.orientation = orientation;
     }
 
     public double get(int index) {
-        // TODO: return element at index (read-locked)
-        
-        // Acquire read lock
-        readLock();
-        try{
-            return this.vector[index];
-        }
-        // Release read lock
-        finally{
-            readUnlock();
-        }
+        return this.vector[index];
     }
 
     public int length() {
-        // TODO: return vector length
-        
         // Acquire read lock
         readLock();
         try{
@@ -43,8 +30,6 @@ public class SharedVector {
     }
 
     public VectorOrientation getOrientation() {
-        // TODO: return vector orientation
-        
         // Acquire read lock
         readLock();
         try{
@@ -57,27 +42,22 @@ public class SharedVector {
     }
 
     public void writeLock() {
-        // TODO: acquire write lock
         this.lock.writeLock().lock();
     }
 
     public void writeUnlock() {
-        // TODO: release write lock
         this.lock.writeLock().unlock();
     }
 
     public void readLock() {
-        // TODO: acquire read lock
         this.lock.readLock().lock();
     }
 
     public void readUnlock() {
-        // TODO: release read lock
         this.lock.readLock().unlock();
     }
 
     public void transpose() {
-        // TODO: transpose vector
         if (orientation == VectorOrientation.ROW_MAJOR) {
             orientation = VectorOrientation.COLUMN_MAJOR;
         } else {
@@ -86,7 +66,6 @@ public class SharedVector {
     }
 
     public void add(SharedVector other) {
-        // TODO: add two vectors
         other.readLock();
         try {
             for (int i = 0; i < vector.length; i++) {
@@ -99,22 +78,20 @@ public class SharedVector {
     }
 
     public void negate() {
-        // TODO: negate vector
         for(int i = 0; i < vector.length; i++){
             this.vector[i] = this.vector[i] * -1;
         }
     }
 
     public double dot(SharedVector other) {
-        // TODO: compute dot product (row · column)
         other.readLock(); 
         try{
             double sum = 0;
 
+            // Compute dot product
             for(int i = 0; i < vector.length; i++){
             sum += this.vector[i] * other.get(i);
             }
-
             return sum;
 
         }finally{
@@ -122,15 +99,14 @@ public class SharedVector {
         }
     }
 
-    // check read lock responsibillity upon "source" matrix in vecmatmul
+
     public void vecMatMul(SharedMatrix matrix) {
-        // TODO: compute row-vector × matrix
-        
         // Resolve dimensions
         int matRows;
         int matCols;
         VectorOrientation matOrient = matrix.getOrientation();
 
+        // Determine matrix dimensions based on orientation
         if (matOrient == VectorOrientation.ROW_MAJOR) {
             matRows = matrix.length();
             matCols = matrix.get(0).length();
@@ -158,17 +134,22 @@ public class SharedVector {
         
         // Matrix is Row-Major
         else {
+            
+            // For each column in the matrix
             for (int col = 0; col < matCols; col++) {
                 double sum = 0;
 
                 for (int row = 0; row < matRows; row++) {
-                    double matVal = matrix.get(row).get(col); // .get(col) calls for readlock/unlock
+                    // Access matrix element based on row-major storage
+                    double matVal = matrix.get(row).get(col);
 
                     sum += this.vector[row] * matVal;
                 }
                 tempResult[col] = sum;
             }
         }
+
+        // Update vector to result
         this.vector = tempResult;
         this.orientation = VectorOrientation.ROW_MAJOR;
     }
