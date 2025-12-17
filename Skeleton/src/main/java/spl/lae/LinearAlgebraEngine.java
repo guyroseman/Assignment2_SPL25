@@ -21,8 +21,13 @@ public class LinearAlgebraEngine {
         while (computationRoot.findResolvable() != null) {
             ComputationNode resolvableNode = computationRoot.findResolvable();
             loadAndCompute(resolvableNode);
-            computationRoot.resolve(leftMatrix.readRowMajor());
+            resolvableNode.resolve(leftMatrix.readRowMajor());
             computationRoot.associativeNesting();
+        }
+        try {
+            executor.shutdown();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         return computationRoot;
     }
