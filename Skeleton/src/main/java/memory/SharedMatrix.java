@@ -11,8 +11,7 @@ public class SharedMatrix {
     public SharedMatrix(double[][] matrix) {
         // Handle empty or null matrix
         if (matrix == null) {
-            this.vectors = new SharedVector[0]; 
-            return;
+            throw new IllegalArgumentException("matrix cant be null");
         }
 
         // Initialize vectors from the provided matrix
@@ -26,14 +25,18 @@ public class SharedMatrix {
         // Capture the current state ("old matrix")
         SharedVector[] oldVectors = this.vectors;
 
+        // Handle null matrix
+        if (matrix == null) {
+            throw new IllegalArgumentException("matrix cant be null");
+        }
+        // Handle empty matrix
+        if (matrix.length == 0) {
+            return;
+        }
+
         // Lock
         acquireAllVectorWriteLocks(oldVectors);
         try {
-            // Handle empty or null matrix
-            if (matrix == null || matrix.length == 0) {
-                this.vectors = new SharedVector[0];
-                return;
-            }
 
             // Create new SharedVectors for the new matrix
             SharedVector[] newVectors = new SharedVector[matrix.length];
@@ -56,15 +59,18 @@ public class SharedMatrix {
         // Capture the current state ("old matrix")
         SharedVector[] oldVectors = this.vectors;
 
+         // Handle null matrix
+        if (matrix == null) {
+            throw new IllegalArgumentException("matrix cant be null");
+        }
+        // Handle empty matrix
+        if (matrix.length == 0) {
+            return;
+        }
+
         // Lock
         acquireAllVectorWriteLocks(oldVectors);
-
         try {
-            // Handle empty or null matrix
-            if (matrix == null || matrix.length == 0) {
-                this.vectors = new SharedVector[0];
-                return;
-            }
 
             // Determine dimensions
             int rows = matrix.length;
@@ -93,15 +99,17 @@ public class SharedMatrix {
     }
 
     public double[][] readRowMajor() {
+       
         SharedVector[] tempVectors = this.vectors;
-        
+
+         // Handle empty matrix
+        if (tempVectors.length == 0) {
+            return new double[0][0];
+        }       
+
         // Lock
         acquireAllVectorReadLocks(tempVectors);
         try {
-            // Handle empty matrix
-            if (tempVectors.length == 0) {
-                return new double[0][0];
-            }
 
             // Determine dimensions and orientation from the tempVectors
             int rows;
@@ -148,7 +156,7 @@ public class SharedMatrix {
         // To ensure we get the latest array ahead of comparsion
         SharedVector[] tempVectors = this.vectors;
 
-        if(index < 0 || index > vectors.length)
+        if(index < 0 || index >= tempVectors.length)
             return null;
         return tempVectors[index];
     }
@@ -173,9 +181,7 @@ public class SharedMatrix {
              return; 
         }
         for (SharedVector vec : vecs) {
-            if (vec != null) { 
-                vec.readLock();
-            }
+            vec.readLock();
         }
     }
 
@@ -185,9 +191,7 @@ public class SharedMatrix {
         }
         for (int i = vecs.length - 1; i >= 0; i--) {
             SharedVector vec = vecs[i];
-            if (vec != null) { 
-                vec.readUnlock();
-            }
+            vec.readUnlock();
         }
     }
 
@@ -196,9 +200,7 @@ public class SharedMatrix {
              return; 
         }
         for (SharedVector vec : vecs) {
-            if (vec != null) { 
-                vec.writeLock();
-            }
+            vec.writeLock();
         }
     }
 
@@ -208,9 +210,7 @@ public class SharedMatrix {
         }
         for (int i = vecs.length - 1; i >= 0; i--) {
             SharedVector vec = vecs[i];
-            if (vec != null) { 
-                vec.writeUnlock();
-            }
+            vec.writeUnlock();
         }
     }
 }

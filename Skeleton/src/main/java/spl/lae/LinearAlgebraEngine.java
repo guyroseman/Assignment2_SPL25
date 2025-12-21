@@ -18,23 +18,26 @@ public class LinearAlgebraEngine {
     }
 
     public ComputationNode run(ComputationNode computationRoot) {
-        while (computationRoot.findResolvable() != null) {
-            ComputationNode resolvableNode = computationRoot.findResolvable();
+        //check if the root is matrix node
+        if(computationRoot.getNodeType() == ComputationNodeType.MATRIX){
+            throw new IllegalArgumentException("The root node cannot be a matrix.");
+        }
+        ComputationNode resolvableNode = computationRoot.findResolvable();
+        while (resolvableNode != null) {
             loadAndCompute(resolvableNode);
             resolvableNode.resolve(leftMatrix.readRowMajor());
-            computationRoot.associativeNesting();
+            resolvableNode = computationRoot.findResolvable();
         }
         try {
             executor.shutdown();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt(); // Restore interrupted status
         }
         return computationRoot;
     }
 
     public void loadAndCompute(ComputationNode node) {
-        // TODO: load operand matrices
-        // TODO: create compute tasks & submit tasks to executor
+
         switch (node.getNodeType()) {
             case ADD:
                 leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
@@ -49,7 +52,7 @@ public class LinearAlgebraEngine {
             case MULTIPLY:
                 leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
                 rightMatrix.loadColumnMajor(node.getChildren().get(1).getMatrix());
-                 for(int i=0;i<leftMatrix.length();i++){
+                 for(int i=0;i<leftMatrix.length();i++){ //// happens in parser?????????????????????????????
                     if(leftMatrix.get(i).length() != rightMatrix.get(i).length()){
                         throw new IllegalArgumentException("Matrix dimensions do not match for multiplication.");
                     }

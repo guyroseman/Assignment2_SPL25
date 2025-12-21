@@ -66,8 +66,6 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
      * Inserts a poison pill so the worker wakes up and exits.
      */
     public void shutdown() {
-        // turn off alive flag
-        alive.set(false);
         try {
             // insert poison pill to wake up the thread if it's waiting
            handoff.put(POISON_PILL);
@@ -89,6 +87,8 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
 
             // Check if shutdown
             if(task == POISON_PILL){
+                alive.set(false);
+                this.timeIdle.set(this.timeIdle.get()); // update idle time before exit
                 break;
             }
 
@@ -103,10 +103,10 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
             timeUsed.addAndGet(endTime - startTime);
             idleStartTime.set(endTime);
 
-       } catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             // interrupt current thread if unable to take task
            Thread.currentThread().interrupt();
-       }
+        }
        }
     }
 

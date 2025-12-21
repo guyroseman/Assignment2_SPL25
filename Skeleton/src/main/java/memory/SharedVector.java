@@ -9,12 +9,23 @@ public class SharedVector {
     private ReadWriteLock lock = new java.util.concurrent.locks.ReentrantReadWriteLock();
 
     public SharedVector(double[] vector, VectorOrientation orientation) {
+        if (vector==null) {
+            throw new IllegalArgumentException("vector cant be null");
+        }
         this.vector = vector;
         this.orientation = orientation;
     }
 
     public double get(int index) {
-        return this.vector[index];
+        readLock();
+        try{
+            if(index < 0 || index >= this.vector.length){
+                throw new IllegalArgumentException("Index out of bounds");
+            }
+            return this.vector[index];
+        }finally{
+            readUnlock();
+        }
     }
 
     public int length() {
@@ -70,7 +81,7 @@ public class SharedVector {
         try {
             for (int i = 0; i < vector.length; i++) {
                 // Access to this.vector[i] is safe because the caller holds the WRITE LOCK
-                this.vector[i] += other.get(i); 
+                this.vector[i] += other.vector[i];
             }
         } finally {
             other.readUnlock();
@@ -90,7 +101,7 @@ public class SharedVector {
 
             // Compute dot product
             for(int i = 0; i < vector.length; i++){
-            sum += this.vector[i] * other.get(i);
+            sum += this.vector[i] * other.vector[i];
             }
             return sum;
 
@@ -104,6 +115,9 @@ public class SharedVector {
         // Resolve dimensions
         int matRows;
         int matCols;
+        if (matrix==null) {
+            throw  new IllegalArgumentException("matrix cant be null");
+        }
         VectorOrientation matOrient = matrix.getOrientation();
 
         // Determine matrix dimensions based on orientation
@@ -123,32 +137,12 @@ public class SharedVector {
 
         double[] tempResult = new double[matCols];
 
-        // Matrix is Col Major
-        if (matOrient == VectorOrientation.COLUMN_MAJOR) {
-            for (int col = 0; col < matCols; col++) {
-                SharedVector colVector = matrix.get(col); 
-                
-                tempResult[col] = this.dot(colVector); 
-            }
+        // Matrix is Col Major (We made it like this in LAE)
+        for (int col = 0; col < matCols; col++) {
+            SharedVector colVector = matrix.get(col);   
+            tempResult[col] = this.dot(colVector); 
         }
         
-        // Matrix is Row-Major
-        else {
-            
-            // For each column in the matrix
-            for (int col = 0; col < matCols; col++) {
-                double sum = 0;
-
-                for (int row = 0; row < matRows; row++) {
-                    // Access matrix element based on row-major storage
-                    double matVal = matrix.get(row).get(col);
-
-                    sum += this.vector[row] * matVal;
-                }
-                tempResult[col] = sum;
-            }
-        }
-
         // Update vector to result
         this.vector = tempResult;
         this.orientation = VectorOrientation.ROW_MAJOR;

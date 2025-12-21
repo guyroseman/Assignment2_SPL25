@@ -29,6 +29,9 @@ public class Main {
 
             // Parse input JSON into a computation graph
             ComputationNode rootNode = parser.parse(inputPath);
+            
+            //Adding associative nesting optimization
+            rootNode.associativeNesting();
 
             // Run the engine to process the rootNode
             ComputationNode resultNode = engine.run(rootNode);

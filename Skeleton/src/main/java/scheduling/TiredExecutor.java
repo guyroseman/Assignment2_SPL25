@@ -17,7 +17,7 @@ public class TiredExecutor {
         // iterate to create and start workers
         for (int i = 0; i < numThreads; i++) {
             // Fatigue factor between 0.5 and 1.5
-            workers[i] = new TiredThread(i, 0.5 + Math.random() * (1.5 - 0.5)); 
+            workers[i] = new TiredThread(i, 0.5 + Math.random() * 1.0); 
             workers[i].start();
             idleMinHeap.add(workers[i]);
         }
@@ -35,6 +35,7 @@ public class TiredExecutor {
                 } finally {
                     // after task completion, put the worker back to idle heap
                     idleMinHeap.add(worker);
+                    // decrease inFlight counter and notify if all tasks are done
                     if(inFlight.decrementAndGet() == 0){
                         synchronized(this){
                             this.notifyAll();
@@ -49,24 +50,32 @@ public class TiredExecutor {
     }
 
     public void submitAll(Iterable<Runnable> tasks) {
-        // TODO: submit tasks one by one and wait until all finish
+        
+        if (tasks == null) {
+            return;
+        }
         for (Runnable task : tasks) {
             submit(task);
         }
+
         // wait until all tasks are done
         synchronized(this){
             while (inFlight.get() > 0) {
-            try {
-                this.wait();; // wait to avoid busy waiting
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
+                try {
+                    this.wait(); // wait to avoid busy waiting
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
             }
         }
-        
     }
 
     public void shutdown() throws InterruptedException {
+
+        if (workers == null) {
+        return;
+        }
+        
         // request all workers to shutdown
         for (TiredThread worker : workers) {
             worker.shutdown();
