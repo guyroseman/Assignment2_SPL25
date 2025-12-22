@@ -31,7 +31,7 @@ public class Main {
             ComputationNode rootNode = parser.parse(inputPath);
             
             //Adding associative nesting optimization
-            rootNode.associativeNesting();
+            recursiveAssociativeNesting(rootNode);
 
             // Run the engine to process the rootNode
             ComputationNode resultNode = engine.run(rootNode);
@@ -57,5 +57,27 @@ public class Main {
                 System.err.println("Failed to write error to output file.");
             }
         }
+    }
+
+    /**
+     * Recursive helper function to associativeNesting.
+     * Traverses the tree bottom-up (Post-Order) and applies associativeNesting to every node.
+     * This ensures that nested operations (like A+B+C) are correctly structured before execution.
+     */
+    private static void recursiveAssociativeNesting(ComputationNode node) {
+        //check for null node
+        if (node == null) {
+            return;
+        }
+
+        // fix the children first (Recursion)
+        if (node.getChildren() != null) {
+            for (ComputationNode child : node.getChildren()) {
+                recursiveAssociativeNesting(child);
+            }
+        }
+
+        // Fix the current node (after children are already arranged)
+        node.associativeNesting();
     }
 }

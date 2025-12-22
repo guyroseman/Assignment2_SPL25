@@ -157,7 +157,7 @@ public class SharedMatrix {
         SharedVector[] tempVectors = this.vectors;
 
         if(index < 0 || index >= tempVectors.length)
-            return null;
+            throw new IllegalArgumentException("Index out of bounds");
         return tempVectors[index];
     }
 

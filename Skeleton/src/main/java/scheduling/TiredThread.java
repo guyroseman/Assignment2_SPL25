@@ -57,7 +57,7 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
      */
     public void newTask(Runnable task) {
        if(!handoff.offer(task)){
-        throw new IllegalStateException("Worker is not ready to accept a new task");
+            throw new IllegalStateException("Worker is not ready to accept a new task");
        }
     }
 

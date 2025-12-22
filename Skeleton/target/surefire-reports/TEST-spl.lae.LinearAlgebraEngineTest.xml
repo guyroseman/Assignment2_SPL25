@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="spl.lae.LinearAlgebraEngineTest" time="0.596" tests="10" errors="0" skipped="0" failures="2">
+  <properties>
+    <property name="java.specification.version" value="23"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\test-classes;C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\classes;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\User\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\User\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Jerusalem"/>
+    <property name="user.country.format" value="IL"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
+    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire9654329744533894161\surefirebooter-20251222124602948_3.jar C:\Users\User\AppData\Local\Temp\surefire9654329744533894161 2025-12-22T12-46-02_837-jvmRun1 surefire-20251222124602948_1tmp surefire_0-20251222124602948_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\test-classes;C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\classes;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\User\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\User\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\User"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-10-15"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-23"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire9654329744533894161\surefirebooter-20251222124602948_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="23.0.1+11-39"/>
+    <property name="user.name" value="User"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\User\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\User\AppData\Local\Temp\"/>
+    <property name="java.version" value="23.0.1"/>
+    <property name="user.dir" value="C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-23\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;c:\Users\User\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\User\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;c:\Users\User\.vscode\extensions\vscjava.vscode-java-debug-0.58.4\bundled\scripts\noConfigScripts;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="23.0.1+11-39"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="67.0"/>
+  </properties>
+  <testcase name="testAssociativeNesting" classname="spl.lae.LinearAlgebraEngineTest" time="0.087">
+    <system-out><![CDATA[Starting execution with 2 threads...
+Computation finished successfully in 47ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=45786.89975444622, TimeUsed=35200, TimeIdle=18617200
+Worker 1: Fatigue=17510.07411365777, TimeUsed=16200, TimeIdle=18260100
+
+]]></system-out>
+  </testcase>
+  <testcase name="testAllOperationsComplex" classname="spl.lae.LinearAlgebraEngineTest" time="0.016">
+    <failure message="expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: not <null>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+	at org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+	at org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:30)
+	at org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:304)
+	at spl.lae.LinearAlgebraEngineTest.testAllOperationsComplex(LinearAlgebraEngineTest.java:165)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
+    <system-out><![CDATA[Starting execution with 4 threads...
+]]></system-out>
+    <system-err><![CDATA[An error occurred: Index out of bounds
+java.lang.IllegalArgumentException: Index out of bounds
+	at memory.SharedMatrix.get(SharedMatrix.java:160)
+	at spl.lae.LinearAlgebraEngine.loadAndCompute(LinearAlgebraEngine.java:59)
+	at spl.lae.LinearAlgebraEngine.run(LinearAlgebraEngine.java:28)
+	at spl.lae.Main.main(Main.java:37)
+	at spl.lae.LinearAlgebraEngineTest.testAllOperationsComplex(LinearAlgebraEngineTest.java:162)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></system-err>
+  </testcase>
+  <testcase name="testHugeInput" classname="spl.lae.LinearAlgebraEngineTest" time="0.243">
+    <system-out><![CDATA[Starting execution with 8 threads...
+Computation finished successfully in 99ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=2201991.9740130366, TimeUsed=2566000, TimeIdle=65265600
+Worker 1: Fatigue=1823016.7364171904, TimeUsed=2520200, TimeIdle=62511200
+Worker 2: Fatigue=1979872.4756005341, TimeUsed=2007300, TimeIdle=62775500
+Worker 3: Fatigue=2274005.190642575, TimeUsed=2093700, TimeIdle=62599600
+Worker 4: Fatigue=1611048.7654251412, TimeUsed=2753100, TimeIdle=61843000
+Worker 5: Fatigue=1965348.3045308276, TimeUsed=2317500, TimeIdle=62196500
+Worker 6: Fatigue=1740171.5711982364, TimeUsed=2671700, TimeIdle=61111100
+Worker 7: Fatigue=2274803.5109061887, TimeUsed=1920200, TimeIdle=61751900
+
+Huge input took: 105ms
+]]></system-out>
+  </testcase>
+  <testcase name="testInvalidDimensions" classname="spl.lae.LinearAlgebraEngineTest" time="0.011">
+    <system-out><![CDATA[Starting execution with 2 threads...
+]]></system-out>
+    <system-err><![CDATA[An error occurred: Matrix dimensions do not match for addition.
+java.lang.IllegalArgumentException: Matrix dimensions do not match for addition.
+	at spl.lae.LinearAlgebraEngine.loadAndCompute(LinearAlgebraEngine.java:50)
+	at spl.lae.LinearAlgebraEngine.run(LinearAlgebraEngine.java:28)
+	at spl.lae.Main.main(Main.java:37)
+	at spl.lae.LinearAlgebraEngineTest.testInvalidDimensions(LinearAlgebraEngineTest.java:182)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></system-err>
+  </testcase>
+  <testcase name="testHighThreadCount" classname="spl.lae.LinearAlgebraEngineTest" time="0.021">
+    <system-out><![CDATA[Starting execution with 100 threads...
+Computation finished successfully in 4ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=41413.82790500945, TimeUsed=43700, TimeIdle=11536700
+Worker 1: Fatigue=0.0, TimeUsed=0, TimeIdle=11361700
+Worker 2: Fatigue=0.0, TimeUsed=0, TimeIdle=11253300
+Worker 3: Fatigue=0.0, TimeUsed=0, TimeIdle=11195800
+Worker 4: Fatigue=0.0, TimeUsed=0, TimeIdle=11098600
+Worker 5: Fatigue=0.0, TimeUsed=0, TimeIdle=11031800
+Worker 6: Fatigue=0.0, TimeUsed=0, TimeIdle=10924900
+Worker 7: Fatigue=0.0, TimeUsed=0, TimeIdle=10873500
+Worker 8: Fatigue=0.0, TimeUsed=0, TimeIdle=10803000
+Worker 9: Fatigue=0.0, TimeUsed=0, TimeIdle=10720500
+Worker 10: Fatigue=0.0, TimeUsed=0, TimeIdle=10616800
+Worker 11: Fatigue=0.0, TimeUsed=0, TimeIdle=10586200
+Worker 12: Fatigue=0.0, TimeUsed=0, TimeIdle=10366900
+Worker 13: Fatigue=0.0, TimeUsed=0, TimeIdle=10140100
+Worker 14: Fatigue=0.0, TimeUsed=0, TimeIdle=10073900
+Worker 15: Fatigue=0.0, TimeUsed=0, TimeIdle=9962300
+Worker 16: Fatigue=0.0, TimeUsed=0, TimeIdle=9901800
+Worker 17: Fatigue=0.0, TimeUsed=0, TimeIdle=9809400
+Worker 18: Fatigue=0.0, TimeUsed=0, TimeIdle=9676100
+Worker 19: Fatigue=0.0, TimeUsed=0, TimeIdle=9547100
+Worker 20: Fatigue=0.0, TimeUsed=0, TimeIdle=9434400
+Worker 21: Fatigue=0.0, TimeUsed=0, TimeIdle=9248300
+Worker 22: Fatigue=0.0, TimeUsed=0, TimeIdle=9056100
+Worker 23: Fatigue=0.0, TimeUsed=0, TimeIdle=8956800
+Worker 24: Fatigue=0.0, TimeUsed=0, TimeIdle=8901800
+Worker 25: Fatigue=0.0, TimeUsed=0, TimeIdle=8801500
+Worker 26: Fatigue=0.0, TimeUsed=0, TimeIdle=8694100
+Worker 27: Fatigue=0.0, TimeUsed=0, TimeIdle=8613400
+Worker 28: Fatigue=0.0, TimeUsed=0, TimeIdle=8557300
+Worker 29: Fatigue=0.0, TimeUsed=0, TimeIdle=8419100
+Worker 30: Fatigue=0.0, TimeUsed=0, TimeIdle=8266100
+Worker 31: Fatigue=0.0, TimeUsed=0, TimeIdle=8175600
+Worker 32: Fatigue=0.0, TimeUsed=0, TimeIdle=8107000
+Worker 33: Fatigue=0.0, TimeUsed=0, TimeIdle=8032900
+Worker 34: Fatigue=0.0, TimeUsed=0, TimeIdle=7957400
+Worker 35: Fatigue=0.0, TimeUsed=0, TimeIdle=7489600
+Worker 36: Fatigue=0.0, TimeUsed=0, TimeIdle=7338400
+Worker 37: Fatigue=0.0, TimeUsed=0, TimeIdle=7262300
+Worker 38: Fatigue=0.0, TimeUsed=0, TimeIdle=7176300
+Worker 39: Fatigue=0.0, TimeUsed=0, TimeIdle=7095300
+Worker 40: Fatigue=0.0, TimeUsed=0, TimeIdle=7057200
+Worker 41: Fatigue=0.0, TimeUsed=0, TimeIdle=6977700
+Worker 42: Fatigue=0.0, TimeUsed=0, TimeIdle=6928200
+Worker 43: Fatigue=0.0, TimeUsed=0, TimeIdle=6840000
+Worker 44: Fatigue=0.0, TimeUsed=0, TimeIdle=6754700
+Worker 45: Fatigue=0.0, TimeUsed=0, TimeIdle=6668200
+Worker 46: Fatigue=0.0, TimeUsed=0, TimeIdle=6568200
+Worker 47: Fatigue=0.0, TimeUsed=0, TimeIdle=6470600
+Worker 48: Fatigue=0.0, TimeUsed=0, TimeIdle=6316100
+Worker 49: Fatigue=0.0, TimeUsed=0, TimeIdle=6118900
+Worker 50: Fatigue=0.0, TimeUsed=0, TimeIdle=6016200
+Worker 51: Fatigue=0.0, TimeUsed=0, TimeIdle=5893200
+Worker 52: Fatigue=0.0, TimeUsed=0, TimeIdle=5778500
+Worker 53: Fatigue=0.0, TimeUsed=0, TimeIdle=5710300
+Worker 54: Fatigue=0.0, TimeUsed=0, TimeIdle=5638400
+Worker 55: Fatigue=0.0, TimeUsed=0, TimeIdle=5558600
+Worker 56: Fatigue=0.0, TimeUsed=0, TimeIdle=5494400
+Worker 57: Fatigue=0.0, TimeUsed=0, TimeIdle=5376400
+Worker 58: Fatigue=0.0, TimeUsed=0, TimeIdle=5303000
+Worker 59: Fatigue=0.0, TimeUsed=0, TimeIdle=5235400
+Worker 60: Fatigue=0.0, TimeUsed=0, TimeIdle=5105000
+Worker 61: Fatigue=0.0, TimeUsed=0, TimeIdle=4997800
+Worker 62: Fatigue=0.0, TimeUsed=0, TimeIdle=4903600
+Worker 63: Fatigue=0.0, TimeUsed=0, TimeIdle=4828700
+Worker 64: Fatigue=0.0, TimeUsed=0, TimeIdle=4736500
+Worker 65: Fatigue=0.0, TimeUsed=0, TimeIdle=4636500
+Worker 66: Fatigue=0.0, TimeUsed=0, TimeIdle=4479800
+Worker 67: Fatigue=0.0, TimeUsed=0, TimeIdle=4372400
+Worker 68: Fatigue=0.0, TimeUsed=0, TimeIdle=4279900
+Worker 69: Fatigue=0.0, TimeUsed=0, TimeIdle=4221800
+Worker 70: Fatigue=0.0, TimeUsed=0, TimeIdle=4127500
+Worker 71: Fatigue=0.0, TimeUsed=0, TimeIdle=4070000
+Worker 72: Fatigue=0.0, TimeUsed=0, TimeIdle=4009100
+Worker 73: Fatigue=0.0, TimeUsed=0, TimeIdle=3937700
+Worker 74: Fatigue=0.0, TimeUsed=0, TimeIdle=3863600
+Worker 75: Fatigue=0.0, TimeUsed=0, TimeIdle=3804400
+Worker 76: Fatigue=0.0, TimeUsed=0, TimeIdle=3742500
+Worker 77: Fatigue=0.0, TimeUsed=0, TimeIdle=3683900
+Worker 78: Fatigue=0.0, TimeUsed=0, TimeIdle=3619900
+Worker 79: Fatigue=0.0, TimeUsed=0, TimeIdle=3496000
+Worker 80: Fatigue=0.0, TimeUsed=0, TimeIdle=3474400
+Worker 81: Fatigue=0.0, TimeUsed=0, TimeIdle=3398700
+Worker 82: Fatigue=0.0, TimeUsed=0, TimeIdle=3286300
+Worker 83: Fatigue=0.0, TimeUsed=0, TimeIdle=3240000
+Worker 84: Fatigue=0.0, TimeUsed=0, TimeIdle=3192000
+Worker 85: Fatigue=0.0, TimeUsed=0, TimeIdle=3115100
+Worker 86: Fatigue=0.0, TimeUsed=0, TimeIdle=2990400
+Worker 87: Fatigue=0.0, TimeUsed=0, TimeIdle=2912000
+Worker 88: Fatigue=0.0, TimeUsed=0, TimeIdle=2847900
+Worker 89: Fatigue=0.0, TimeUsed=0, TimeIdle=2764600
+Worker 90: Fatigue=0.0, TimeUsed=0, TimeIdle=2701500
+Worker 91: Fatigue=0.0, TimeUsed=0, TimeIdle=2642300
+Worker 92: Fatigue=0.0, TimeUsed=0, TimeIdle=2539300
+Worker 93: Fatigue=0.0, TimeUsed=0, TimeIdle=2430400
+Worker 94: Fatigue=0.0, TimeUsed=0, TimeIdle=2337600
+Worker 95: Fatigue=0.0, TimeUsed=0, TimeIdle=2280600
+Worker 96: Fatigue=0.0, TimeUsed=0, TimeIdle=2224200
+Worker 97: Fatigue=0.0, TimeUsed=0, TimeIdle=2181800
+Worker 98: Fatigue=0.0, TimeUsed=0, TimeIdle=2097400
+Worker 99: Fatigue=34232.325303284946, TimeUsed=25400, TimeIdle=2012600
+
+]]></system-out>
+  </testcase>
+  <testcase name="testInterruption" classname="spl.lae.LinearAlgebraEngineTest" time="0.062">
+    <system-out><![CDATA[Starting execution with 2 threads...
+Computation finished successfully in 49ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=2184574.144776257, TimeUsed=2791700, TimeIdle=36983600
+Worker 1: Fatigue=2179698.8282371084, TimeUsed=1694900, TimeIdle=38029300
+
+]]></system-out>
+  </testcase>
+  <testcase name="testFourNestedMatrices" classname="spl.lae.LinearAlgebraEngineTest" time="0.0">
+    <system-out><![CDATA[Starting execution with 4 threads...
+Computation finished successfully in 0ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=8385.656118276265, TimeUsed=8000, TimeIdle=1236300
+Worker 1: Fatigue=4541.739962164025, TimeUsed=3100, TimeIdle=1125400
+Worker 2: Fatigue=0.0, TimeUsed=0, TimeIdle=993500
+Worker 3: Fatigue=4614.210857455604, TimeUsed=3400, TimeIdle=876200
+
+]]></system-out>
+  </testcase>
+  <testcase name="testTwiceNesting" classname="spl.lae.LinearAlgebraEngineTest" time="0.014">
+    <system-out><![CDATA[Starting execution with 4 threads...
+Computation finished successfully in 2ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=15811.020482714363, TimeUsed=11300, TimeIdle=1740200
+Worker 1: Fatigue=6344.050994377576, TimeUsed=7200, TimeIdle=1475800
+Worker 2: Fatigue=26481.37943366608, TimeUsed=37000, TimeIdle=1286500
+Worker 3: Fatigue=4493.555747167629, TimeUsed=5700, TimeIdle=1205500
+
+]]></system-out>
+  </testcase>
+  <testcase name="testMatrixWithNullValues" classname="spl.lae.LinearAlgebraEngineTest" time="0.003">
+    <system-out><![CDATA[Starting execution with 2 threads...
+Computation finished successfully in 0ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=6010.646377819827, TimeUsed=10900, TimeIdle=1433000
+Worker 1: Fatigue=0.0, TimeUsed=0, TimeIdle=1190200
+
+]]></system-out>
+  </testcase>
+  <testcase name="testIncorrectFilePaths" classname="spl.lae.LinearAlgebraEngineTest" time="0.011">
+    <failure message="Should throw IOException when output path is unwritable ==&gt; Expected java.io.IOException to be thrown, but nothing was thrown." type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Should throw IOException when output path is unwritable ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3131)
+	at spl.lae.LinearAlgebraEngineTest.testIncorrectFilePaths(LinearAlgebraEngineTest.java:282)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
+    <system-out><![CDATA[Starting execution with 2 threads...
+Starting execution with 2 threads...
+]]></system-out>
+    <system-err><![CDATA[An error occurred: Failed to read the input JSON file: C:\Users\User\AppData\Local\Temp\junit16725754448200093844\ghost.json (The system cannot find the file specified)
+java.text.ParseException: Failed to read the input JSON file: C:\Users\User\AppData\Local\Temp\junit16725754448200093844\ghost.json (The system cannot find the file specified)
+	at parser.InputParser.parse(InputParser.java:23)
+	at spl.lae.Main.main(Main.java:31)
+	at spl.lae.LinearAlgebraEngineTest.testIncorrectFilePaths(LinearAlgebraEngineTest.java:268)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+An error occurred: C:\Users\User\AppData\Local\Temp\junit16725754448200093844 (Access is denied)
+java.io.FileNotFoundException: C:\Users\User\AppData\Local\Temp\junit16725754448200093844 (Access is denied)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185)
+	at com.fasterxml.jackson.core.TokenStreamFactory._fileOutputStream(TokenStreamFactory.java:334)
+	at com.fasterxml.jackson.core.JsonFactory.createGenerator(JsonFactory.java:1558)
+	at com.fasterxml.jackson.databind.ObjectWriter.createGenerator(ObjectWriter.java:764)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1081)
+	at parser.OutputWriter.write(OutputWriter.java:26)
+	at spl.lae.Main.main(Main.java:40)
+	at spl.lae.LinearAlgebraEngineTest.lambda$testIncorrectFilePaths$1(LinearAlgebraEngineTest.java:283)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3131)
+	at spl.lae.LinearAlgebraEngineTest.testIncorrectFilePaths(LinearAlgebraEngineTest.java:282)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Failed to write error to output file.
+]]></system-err>
+  </testcase>
+</testsuite>
