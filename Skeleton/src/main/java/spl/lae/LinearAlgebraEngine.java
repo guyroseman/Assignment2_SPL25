@@ -55,9 +55,11 @@ public class LinearAlgebraEngine {
             case MULTIPLY:
                 leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
                 rightMatrix.loadColumnMajor(node.getChildren().get(1).getMatrix());
-                 for(int i=0;i<leftMatrix.length();i++){ 
-                    if(leftMatrix.get(i).length() != rightMatrix.get(i).length()){
-                        throw new IllegalArgumentException("Matrix dimensions do not match for multiplication.");
+                 if (leftMatrix.length() > 0 && rightMatrix.length() > 0) {
+                    int colsA = leftMatrix.get(0).length();
+                    int rowsB = rightMatrix.get(0).length(); 
+                    if (colsA != rowsB) {
+                         throw new IllegalArgumentException("Matrix dimensions do not match for multiplication.");
                     }
                 }
                 executor.submitAll(createMultiplyTasks());
