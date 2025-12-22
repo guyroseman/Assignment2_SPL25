@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="memory.SharedVectorTest" time="0.074" tests="20" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="memory.SharedVectorTest" time="0.067" tests="20" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire13112268855952461164\surefirebooter-20251222125451843_3.jar C:\Users\User\AppData\Local\Temp\surefire13112268855952461164 2025-12-22T12-54-51_721-jvmRun1 surefire-20251222125451843_1tmp surefire_0-20251222125451843_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire12246396466150638893\surefirebooter-20251222130734070_3.jar C:\Users\User\AppData\Local\Temp\surefire12246396466150638893 2025-12-22T13-07-33_955-jvmRun1 surefire-20251222130734070_1tmp surefire_0-20251222130734070_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\test-classes;C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\classes;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\User\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\User\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire13112268855952461164\surefirebooter-20251222125451843_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire12246396466150638893\surefirebooter-20251222130734070_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.1+11-39"/>
@@ -59,24 +59,24 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testDot_Infinity" classname="memory.SharedVectorTest" time="0.023"/>
+  <testcase name="testDot_Infinity" classname="memory.SharedVectorTest" time="0.019"/>
   <testcase name="testConstructor_RegularVector" classname="memory.SharedVectorTest" time="0.001"/>
-  <testcase name="testVecMatMul_DimensionMismatch_ThrowsException" classname="memory.SharedVectorTest" time="0.005"/>
-  <testcase name="testVecMatMul_NullMatrix_ThrowsException" classname="memory.SharedVectorTest" time="0.001"/>
+  <testcase name="testVecMatMul_DimensionMismatch_ThrowsException" classname="memory.SharedVectorTest" time="0.006"/>
+  <testcase name="testVecMatMul_NullMatrix_ThrowsException" classname="memory.SharedVectorTest" time="0.002"/>
   <testcase name="testVecMatMul_RegularRM" classname="memory.SharedVectorTest" time="0.001"/>
-  <testcase name="testNegate_MixedSigns" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testConstructor_EmptyArray_CreatedSuccessfully" classname="memory.SharedVectorTest" time="0.0"/>
+  <testcase name="testNegate_MixedSigns" classname="memory.SharedVectorTest" time="0.001"/>
+  <testcase name="testConstructor_EmptyArray_CreatedSuccessfully" classname="memory.SharedVectorTest" time="0.001"/>
   <testcase name="testDot_Standard" classname="memory.SharedVectorTest" time="0.0"/>
   <testcase name="testGet_ValidIndex" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testConstructor_ScalarVector_CreatedSuccessfully" classname="memory.SharedVectorTest" time="0.001"/>
-  <testcase name="testConstructor_NullVector_ThrowsException" classname="memory.SharedVectorTest" time="0.0"/>
+  <testcase name="testConstructor_ScalarVector_CreatedSuccessfully" classname="memory.SharedVectorTest" time="0.0"/>
+  <testcase name="testConstructor_NullVector_ThrowsException" classname="memory.SharedVectorTest" time="0.001"/>
   <testcase name="testGet_NegativeIndex_ThrowsException" classname="memory.SharedVectorTest" time="0.0"/>
   <testcase name="testDot_SelfReference" classname="memory.SharedVectorTest" time="0.001"/>
   <testcase name="testDot_NullOther_ThrowsException" classname="memory.SharedVectorTest" time="0.001"/>
   <testcase name="testVecMatMul_Scalaric" classname="memory.SharedVectorTest" time="0.001"/>
   <testcase name="testDot_DimensionMismatch_ThisLonger_ThrowsException" classname="memory.SharedVectorTest" time="0.001"/>
-  <testcase name="testGet_IndexOutOfBounds_ThrowsException" classname="memory.SharedVectorTest" time="0.002"/>
+  <testcase name="testGet_IndexOutOfBounds_ThrowsException" classname="memory.SharedVectorTest" time="0.001"/>
   <testcase name="testNegate_ZeroHandling" classname="memory.SharedVectorTest" time="0.001"/>
-  <testcase name="testDot_Scalaric" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testNegate_RegularValues" classname="memory.SharedVectorTest" time="0.0"/>
+  <testcase name="testDot_Scalaric" classname="memory.SharedVectorTest" time="0.001"/>
+  <testcase name="testNegate_RegularValues" classname="memory.SharedVectorTest" time="0.001"/>
 </testsuite>

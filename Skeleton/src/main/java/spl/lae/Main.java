@@ -55,7 +55,7 @@ public class Main {
                 }
             } catch (IOException ioException) {
                 System.err.println("Failed to write error to output file.");
-            }
+                throw new IOException("Fatal: Could not write error to output file", ioException);            }
         }
     }
 
