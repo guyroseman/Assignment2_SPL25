@@ -24,16 +24,19 @@ public class LinearAlgebraEngine {
                 throw new IllegalArgumentException("The root node cannot be a matrix.");
             }
             ComputationNode resolvableNode = computationRoot.findResolvable();
-            executor.shutdown();
             while (resolvableNode != null) {
-            loadAndCompute(resolvableNode);
-            resolvableNode.resolve(leftMatrix.readRowMajor());
-            resolvableNode = computationRoot.findResolvable();
+                loadAndCompute(resolvableNode);
+                resolvableNode.resolve(leftMatrix.readRowMajor());
+                resolvableNode = computationRoot.findResolvable();
             }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Restore interrupted status
+            return computationRoot;
+        } finally {
+             try {
+                executor.shutdown();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // Restore interrupted status
+            }
         }
-        return computationRoot;
     }
 
     public void loadAndCompute(ComputationNode node) {
