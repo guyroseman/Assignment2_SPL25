@@ -26,7 +26,7 @@ public class Main {
 
             System.out.println("Starting execution with " + numThreads + " threads...");
             long startTime = System.currentTimeMillis();
-
+            
             // Parse input JSON into a computation graph
             ComputationNode rootNode = parser.parse(inputPath);
             

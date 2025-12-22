@@ -18,18 +18,18 @@ public class LinearAlgebraEngine {
     }
 
     public ComputationNode run(ComputationNode computationRoot) {
-        //check if the root is matrix node
-        if(computationRoot.getNodeType() == ComputationNodeType.MATRIX){
-            throw new IllegalArgumentException("The root node cannot be a matrix.");
-        }
-        ComputationNode resolvableNode = computationRoot.findResolvable();
-        while (resolvableNode != null) {
+        try {
+            //check if the root is matrix node
+            if(computationRoot.getNodeType() == ComputationNodeType.MATRIX){
+                throw new IllegalArgumentException("The root node cannot be a matrix.");
+            }
+            ComputationNode resolvableNode = computationRoot.findResolvable();
+            executor.shutdown();
+            while (resolvableNode != null) {
             loadAndCompute(resolvableNode);
             resolvableNode.resolve(leftMatrix.readRowMajor());
             resolvableNode = computationRoot.findResolvable();
-        }
-        try {
-            executor.shutdown();
+            }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt(); // Restore interrupted status
         }
@@ -43,7 +43,7 @@ public class LinearAlgebraEngine {
                 leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
                 rightMatrix.loadRowMajor(node.getChildren().get(1).getMatrix());
                 for(int i=0;i<leftMatrix.length();i++){
-                    if(leftMatrix.get(i).length() != rightMatrix.get(i).length()){ // get readlock?
+                    if(leftMatrix.get(i).length() != rightMatrix.get(i).length()){ 
                         throw new IllegalArgumentException("Matrix dimensions do not match for addition.");
                     }
                 }
@@ -52,7 +52,7 @@ public class LinearAlgebraEngine {
             case MULTIPLY:
                 leftMatrix.loadRowMajor(node.getChildren().get(0).getMatrix());
                 rightMatrix.loadColumnMajor(node.getChildren().get(1).getMatrix());
-                 for(int i=0;i<leftMatrix.length();i++){ //// happens in parser?????????????????????????????
+                 for(int i=0;i<leftMatrix.length();i++){ 
                     if(leftMatrix.get(i).length() != rightMatrix.get(i).length()){
                         throw new IllegalArgumentException("Matrix dimensions do not match for multiplication.");
                     }
