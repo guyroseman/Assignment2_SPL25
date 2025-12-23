@@ -90,7 +90,9 @@ public class SharedVector {
 
     public void negate() {
         for(int i = 0; i < vector.length; i++){
-            this.vector[i] = this.vector[i] * -1;
+            if (vector[i]!=0) {
+                this.vector[i] = this.vector[i] * -1;
+            }
         }
     }
 
