@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="spl.lae.LinearAlgebraEngineTest" time="0.626" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="spl.lae.LinearAlgebraEngineTest" time="0.963" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire167098171054860099\surefirebooter-20251223121550437_3.jar C:\Users\User\AppData\Local\Temp\surefire167098171054860099 2025-12-23T12-15-50_309-jvmRun1 surefire-20251223121550437_1tmp surefire_0-20251223121550437_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire11599343107454345667\surefirebooter-20251223153840838_3.jar C:\Users\User\AppData\Local\Temp\surefire11599343107454345667 2025-12-23T15-38-40_633-jvmRun1 surefire-20251223153840838_1tmp surefire_0-20251223153840838_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\test-classes;C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\classes;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\User\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\User\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire167098171054860099\surefirebooter-20251223121550437_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire11599343107454345667\surefirebooter-20251223153840838_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.1+11-39"/>
@@ -59,43 +59,43 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testAssociativeNesting" classname="spl.lae.LinearAlgebraEngineTest" time="0.108">
+  <testcase name="testAssociativeNesting" classname="spl.lae.LinearAlgebraEngineTest" time="0.152">
     <system-out><![CDATA[Starting execution with 2 threads...
-Computation finished successfully in 46ms.
+Computation finished successfully in 68ms.
 --- Worker Activity Report ---
-Worker 0: Fatigue=17809.120847840444, TimeUsed=26100, TimeIdle=19994700
-Worker 1: Fatigue=9655.936000201467, TimeUsed=9200, TimeIdle=19597500
+Worker 0: Fatigue=25049.052628686968, TimeUsed=31400, TimeIdle=28265100
+Worker 1: Fatigue=6651.491522589799, TimeUsed=5700, TimeIdle=28084300
 
 ]]></system-out>
   </testcase>
-  <testcase name="testAllOperationsComplex" classname="spl.lae.LinearAlgebraEngineTest" time="0.007">
+  <testcase name="testAllOperationsComplex" classname="spl.lae.LinearAlgebraEngineTest" time="0.017">
     <system-out><![CDATA[Starting execution with 4 threads...
-Computation finished successfully in 0ms.
+Computation finished successfully in 2ms.
 --- Worker Activity Report ---
-Worker 0: Fatigue=41223.121319884536, TimeUsed=30000, TimeIdle=2461700
-Worker 1: Fatigue=25844.992151664712, TimeUsed=18500, TimeIdle=2309900
-Worker 2: Fatigue=24736.493436307355, TimeUsed=33600, TimeIdle=2169400
-Worker 3: Fatigue=34374.181260453035, TimeUsed=33000, TimeIdle=1965100
+Worker 0: Fatigue=66899.63348735287, TimeUsed=57800, TimeIdle=5459100
+Worker 1: Fatigue=99072.98774677404, TimeUsed=188100, TimeIdle=4883300
+Worker 2: Fatigue=56783.97262749155, TimeUsed=47200, TimeIdle=4712100
+Worker 3: Fatigue=53520.9734666442, TimeUsed=59300, TimeIdle=4436100
 
 ]]></system-out>
   </testcase>
-  <testcase name="testHugeInput" classname="spl.lae.LinearAlgebraEngineTest" time="0.223">
+  <testcase name="testHugeInput" classname="spl.lae.LinearAlgebraEngineTest" time="0.366">
     <system-out><![CDATA[Starting execution with 8 threads...
-Computation finished successfully in 109ms.
+Computation finished successfully in 204ms.
 --- Worker Activity Report ---
-Worker 0: Fatigue=1510089.116010636, TimeUsed=2755900, TimeIdle=67479100
-Worker 1: Fatigue=2265934.2004560456, TimeUsed=1871000, TimeIdle=68213600
-Worker 2: Fatigue=2125901.256461666, TimeUsed=2270900, TimeIdle=67692000
-Worker 3: Fatigue=2267908.4544205335, TimeUsed=2021500, TimeIdle=67850400
-Worker 4: Fatigue=1906882.0812112947, TimeUsed=2446000, TimeIdle=67352800
-Worker 5: Fatigue=2222739.860174195, TimeUsed=2153600, TimeIdle=67519500
-Worker 6: Fatigue=2244552.118879885, TimeUsed=1843400, TimeIdle=67755100
-Worker 7: Fatigue=2386842.7765128603, TimeUsed=1673900, TimeIdle=67821400
+Worker 0: Fatigue=3296599.7033537785, TimeUsed=2845900, TimeIdle=132012200
+Worker 1: Fatigue=3047889.678202458, TimeUsed=2754000, TimeIdle=131896100
+Worker 2: Fatigue=3149224.1572133373, TimeUsed=2194800, TimeIdle=132306700
+Worker 3: Fatigue=3381013.2305686017, TimeUsed=2338900, TimeIdle=132020300
+Worker 4: Fatigue=2320926.3054786627, TimeUsed=2521800, TimeIdle=131704500
+Worker 5: Fatigue=2205630.2543650246, TimeUsed=2834000, TimeIdle=131264400
+Worker 6: Fatigue=1696465.4681328868, TimeUsed=2940200, TimeIdle=130853700
+Worker 7: Fatigue=1857148.8305906358, TimeUsed=2554500, TimeIdle=130937800
 
-Huge input took: 111ms
+Huge input took: 207ms
 ]]></system-out>
   </testcase>
-  <testcase name="testInvalidDimensions" classname="spl.lae.LinearAlgebraEngineTest" time="0.006">
+  <testcase name="testInvalidDimensions" classname="spl.lae.LinearAlgebraEngineTest" time="0.013">
     <system-out><![CDATA[Starting execution with 2 threads...
 ]]></system-out>
     <system-err><![CDATA[An error occurred: Matrix dimensions do not match for addition.
@@ -175,159 +175,159 @@ java.lang.IllegalArgumentException: Matrix dimensions do not match for addition.
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 ]]></system-err>
   </testcase>
-  <testcase name="testHighThreadCount" classname="spl.lae.LinearAlgebraEngineTest" time="0.015">
+  <testcase name="testHighThreadCount" classname="spl.lae.LinearAlgebraEngineTest" time="0.089">
     <system-out><![CDATA[Starting execution with 100 threads...
+Computation finished successfully in 9ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=175629.85899329378, TimeUsed=140200, TimeIdle=28331900
+Worker 1: Fatigue=0.0, TimeUsed=0, TimeIdle=28295100
+Worker 2: Fatigue=0.0, TimeUsed=0, TimeIdle=27967100
+Worker 3: Fatigue=0.0, TimeUsed=0, TimeIdle=28136200
+Worker 4: Fatigue=0.0, TimeUsed=0, TimeIdle=28043700
+Worker 5: Fatigue=0.0, TimeUsed=0, TimeIdle=28272600
+Worker 6: Fatigue=0.0, TimeUsed=0, TimeIdle=27621300
+Worker 7: Fatigue=0.0, TimeUsed=0, TimeIdle=26804500
+Worker 8: Fatigue=0.0, TimeUsed=0, TimeIdle=26509500
+Worker 9: Fatigue=0.0, TimeUsed=0, TimeIdle=26428200
+Worker 10: Fatigue=0.0, TimeUsed=0, TimeIdle=25848600
+Worker 11: Fatigue=0.0, TimeUsed=0, TimeIdle=25744900
+Worker 12: Fatigue=0.0, TimeUsed=0, TimeIdle=25655200
+Worker 13: Fatigue=0.0, TimeUsed=0, TimeIdle=25515800
+Worker 14: Fatigue=0.0, TimeUsed=0, TimeIdle=25279800
+Worker 15: Fatigue=0.0, TimeUsed=0, TimeIdle=25231600
+Worker 16: Fatigue=0.0, TimeUsed=0, TimeIdle=25056400
+Worker 17: Fatigue=0.0, TimeUsed=0, TimeIdle=24754200
+Worker 18: Fatigue=0.0, TimeUsed=0, TimeIdle=24508400
+Worker 19: Fatigue=0.0, TimeUsed=0, TimeIdle=24515700
+Worker 20: Fatigue=0.0, TimeUsed=0, TimeIdle=24196800
+Worker 21: Fatigue=0.0, TimeUsed=0, TimeIdle=24096300
+Worker 22: Fatigue=0.0, TimeUsed=0, TimeIdle=23775300
+Worker 23: Fatigue=0.0, TimeUsed=0, TimeIdle=23208500
+Worker 24: Fatigue=0.0, TimeUsed=0, TimeIdle=22902900
+Worker 25: Fatigue=0.0, TimeUsed=0, TimeIdle=22737300
+Worker 26: Fatigue=0.0, TimeUsed=0, TimeIdle=22787200
+Worker 27: Fatigue=0.0, TimeUsed=0, TimeIdle=22686600
+Worker 28: Fatigue=0.0, TimeUsed=0, TimeIdle=22255000
+Worker 29: Fatigue=0.0, TimeUsed=0, TimeIdle=21976400
+Worker 30: Fatigue=0.0, TimeUsed=0, TimeIdle=22013500
+Worker 31: Fatigue=0.0, TimeUsed=0, TimeIdle=21869500
+Worker 32: Fatigue=0.0, TimeUsed=0, TimeIdle=21383000
+Worker 33: Fatigue=0.0, TimeUsed=0, TimeIdle=21217300
+Worker 34: Fatigue=0.0, TimeUsed=0, TimeIdle=21360900
+Worker 35: Fatigue=0.0, TimeUsed=0, TimeIdle=21191300
+Worker 36: Fatigue=0.0, TimeUsed=0, TimeIdle=20632100
+Worker 37: Fatigue=0.0, TimeUsed=0, TimeIdle=20344700
+Worker 38: Fatigue=0.0, TimeUsed=0, TimeIdle=20468900
+Worker 39: Fatigue=0.0, TimeUsed=0, TimeIdle=20331700
+Worker 40: Fatigue=0.0, TimeUsed=0, TimeIdle=19873900
+Worker 41: Fatigue=0.0, TimeUsed=0, TimeIdle=20151100
+Worker 42: Fatigue=0.0, TimeUsed=0, TimeIdle=20132300
+Worker 43: Fatigue=0.0, TimeUsed=0, TimeIdle=20033500
+Worker 44: Fatigue=0.0, TimeUsed=0, TimeIdle=19940400
+Worker 45: Fatigue=0.0, TimeUsed=0, TimeIdle=19793500
+Worker 46: Fatigue=0.0, TimeUsed=0, TimeIdle=19571200
+Worker 47: Fatigue=0.0, TimeUsed=0, TimeIdle=19287400
+Worker 48: Fatigue=0.0, TimeUsed=0, TimeIdle=19064600
+Worker 49: Fatigue=0.0, TimeUsed=0, TimeIdle=18833400
+Worker 50: Fatigue=0.0, TimeUsed=0, TimeIdle=18611200
+Worker 51: Fatigue=0.0, TimeUsed=0, TimeIdle=18214000
+Worker 52: Fatigue=0.0, TimeUsed=0, TimeIdle=17916900
+Worker 53: Fatigue=0.0, TimeUsed=0, TimeIdle=17742900
+Worker 54: Fatigue=0.0, TimeUsed=0, TimeIdle=17509900
+Worker 55: Fatigue=0.0, TimeUsed=0, TimeIdle=17335800
+Worker 56: Fatigue=0.0, TimeUsed=0, TimeIdle=16934200
+Worker 57: Fatigue=0.0, TimeUsed=0, TimeIdle=16689000
+Worker 58: Fatigue=0.0, TimeUsed=0, TimeIdle=16378600
+Worker 59: Fatigue=0.0, TimeUsed=0, TimeIdle=16188200
+Worker 60: Fatigue=0.0, TimeUsed=0, TimeIdle=16059200
+Worker 61: Fatigue=0.0, TimeUsed=0, TimeIdle=15898800
+Worker 62: Fatigue=0.0, TimeUsed=0, TimeIdle=15630700
+Worker 63: Fatigue=0.0, TimeUsed=0, TimeIdle=15277300
+Worker 64: Fatigue=0.0, TimeUsed=0, TimeIdle=15095900
+Worker 65: Fatigue=0.0, TimeUsed=0, TimeIdle=14742800
+Worker 66: Fatigue=0.0, TimeUsed=0, TimeIdle=14357100
+Worker 67: Fatigue=0.0, TimeUsed=0, TimeIdle=13963400
+Worker 68: Fatigue=0.0, TimeUsed=0, TimeIdle=13697300
+Worker 69: Fatigue=0.0, TimeUsed=0, TimeIdle=13202300
+Worker 70: Fatigue=0.0, TimeUsed=0, TimeIdle=12672600
+Worker 71: Fatigue=0.0, TimeUsed=0, TimeIdle=12143200
+Worker 72: Fatigue=0.0, TimeUsed=0, TimeIdle=11841900
+Worker 73: Fatigue=0.0, TimeUsed=0, TimeIdle=11678600
+Worker 74: Fatigue=0.0, TimeUsed=0, TimeIdle=11329800
+Worker 75: Fatigue=0.0, TimeUsed=0, TimeIdle=11148000
+Worker 76: Fatigue=0.0, TimeUsed=0, TimeIdle=10996000
+Worker 77: Fatigue=0.0, TimeUsed=0, TimeIdle=10767900
+Worker 78: Fatigue=0.0, TimeUsed=0, TimeIdle=10553300
+Worker 79: Fatigue=0.0, TimeUsed=0, TimeIdle=10352900
+Worker 80: Fatigue=0.0, TimeUsed=0, TimeIdle=10112300
+Worker 81: Fatigue=0.0, TimeUsed=0, TimeIdle=9736100
+Worker 82: Fatigue=0.0, TimeUsed=0, TimeIdle=8682600
+Worker 83: Fatigue=0.0, TimeUsed=0, TimeIdle=8452600
+Worker 84: Fatigue=0.0, TimeUsed=0, TimeIdle=8451800
+Worker 85: Fatigue=0.0, TimeUsed=0, TimeIdle=8293000
+Worker 86: Fatigue=0.0, TimeUsed=0, TimeIdle=8060900
+Worker 87: Fatigue=0.0, TimeUsed=0, TimeIdle=7884800
+Worker 88: Fatigue=0.0, TimeUsed=0, TimeIdle=7860600
+Worker 89: Fatigue=0.0, TimeUsed=0, TimeIdle=7698800
+Worker 90: Fatigue=0.0, TimeUsed=0, TimeIdle=7347000
+Worker 91: Fatigue=0.0, TimeUsed=0, TimeIdle=7178800
+Worker 92: Fatigue=0.0, TimeUsed=0, TimeIdle=7184400
+Worker 93: Fatigue=0.0, TimeUsed=0, TimeIdle=7016000
+Worker 94: Fatigue=0.0, TimeUsed=0, TimeIdle=6682400
+Worker 95: Fatigue=0.0, TimeUsed=0, TimeIdle=6524700
+Worker 96: Fatigue=0.0, TimeUsed=0, TimeIdle=6299900
+Worker 97: Fatigue=0.0, TimeUsed=0, TimeIdle=6126000
+Worker 98: Fatigue=0.0, TimeUsed=0, TimeIdle=5709000
+Worker 99: Fatigue=161872.29401795147, TimeUsed=142400, TimeIdle=5403100
+
+]]></system-out>
+  </testcase>
+  <testcase name="testInterruption" classname="spl.lae.LinearAlgebraEngineTest" time="0.106">
+    <system-out><![CDATA[Starting execution with 2 threads...
+Computation finished successfully in 75ms.
+--- Worker Activity Report ---
+Worker 0: Fatigue=291255.216237004, TimeUsed=278500, TimeIdle=58048100
+Worker 1: Fatigue=292455.615688811, TimeUsed=265900, TimeIdle=57808900
+
+]]></system-out>
+  </testcase>
+  <testcase name="testFourNestedMatrices" classname="spl.lae.LinearAlgebraEngineTest" time="0.004">
+    <system-out><![CDATA[Starting execution with 4 threads...
 Computation finished successfully in 0ms.
 --- Worker Activity Report ---
-Worker 0: Fatigue=41555.70446094996, TimeUsed=46600, TimeIdle=14083400
-Worker 1: Fatigue=0.0, TimeUsed=0, TimeIdle=13940300
-Worker 2: Fatigue=0.0, TimeUsed=0, TimeIdle=13745700
-Worker 3: Fatigue=0.0, TimeUsed=0, TimeIdle=13608700
-Worker 4: Fatigue=0.0, TimeUsed=0, TimeIdle=13531600
-Worker 5: Fatigue=0.0, TimeUsed=0, TimeIdle=13476100
-Worker 6: Fatigue=0.0, TimeUsed=0, TimeIdle=13356100
-Worker 7: Fatigue=0.0, TimeUsed=0, TimeIdle=13254200
-Worker 8: Fatigue=0.0, TimeUsed=0, TimeIdle=13184000
-Worker 9: Fatigue=0.0, TimeUsed=0, TimeIdle=13053100
-Worker 10: Fatigue=0.0, TimeUsed=0, TimeIdle=12908200
-Worker 11: Fatigue=0.0, TimeUsed=0, TimeIdle=12753800
-Worker 12: Fatigue=0.0, TimeUsed=0, TimeIdle=12460900
-Worker 13: Fatigue=0.0, TimeUsed=0, TimeIdle=12277600
-Worker 14: Fatigue=0.0, TimeUsed=0, TimeIdle=12126500
-Worker 15: Fatigue=0.0, TimeUsed=0, TimeIdle=12000600
-Worker 16: Fatigue=0.0, TimeUsed=0, TimeIdle=11816300
-Worker 17: Fatigue=0.0, TimeUsed=0, TimeIdle=11655100
-Worker 18: Fatigue=0.0, TimeUsed=0, TimeIdle=11560900
-Worker 19: Fatigue=0.0, TimeUsed=0, TimeIdle=11483900
-Worker 20: Fatigue=0.0, TimeUsed=0, TimeIdle=11284800
-Worker 21: Fatigue=0.0, TimeUsed=0, TimeIdle=11070600
-Worker 22: Fatigue=0.0, TimeUsed=0, TimeIdle=10973400
-Worker 23: Fatigue=0.0, TimeUsed=0, TimeIdle=10861100
-Worker 24: Fatigue=0.0, TimeUsed=0, TimeIdle=10700200
-Worker 25: Fatigue=0.0, TimeUsed=0, TimeIdle=10599300
-Worker 26: Fatigue=0.0, TimeUsed=0, TimeIdle=10519200
-Worker 27: Fatigue=0.0, TimeUsed=0, TimeIdle=10424800
-Worker 28: Fatigue=0.0, TimeUsed=0, TimeIdle=10221200
-Worker 29: Fatigue=0.0, TimeUsed=0, TimeIdle=10112300
-Worker 30: Fatigue=0.0, TimeUsed=0, TimeIdle=9990900
-Worker 31: Fatigue=0.0, TimeUsed=0, TimeIdle=9883400
-Worker 32: Fatigue=0.0, TimeUsed=0, TimeIdle=9685500
-Worker 33: Fatigue=0.0, TimeUsed=0, TimeIdle=9573600
-Worker 34: Fatigue=0.0, TimeUsed=0, TimeIdle=9516100
-Worker 35: Fatigue=0.0, TimeUsed=0, TimeIdle=9345800
-Worker 36: Fatigue=0.0, TimeUsed=0, TimeIdle=9089400
-Worker 37: Fatigue=0.0, TimeUsed=0, TimeIdle=8994300
-Worker 38: Fatigue=0.0, TimeUsed=0, TimeIdle=8947400
-Worker 39: Fatigue=0.0, TimeUsed=0, TimeIdle=8807200
-Worker 40: Fatigue=0.0, TimeUsed=0, TimeIdle=8640600
-Worker 41: Fatigue=0.0, TimeUsed=0, TimeIdle=8523600
-Worker 42: Fatigue=0.0, TimeUsed=0, TimeIdle=8442100
-Worker 43: Fatigue=0.0, TimeUsed=0, TimeIdle=8298000
-Worker 44: Fatigue=0.0, TimeUsed=0, TimeIdle=8090100
-Worker 45: Fatigue=0.0, TimeUsed=0, TimeIdle=7980500
-Worker 46: Fatigue=0.0, TimeUsed=0, TimeIdle=7958400
-Worker 47: Fatigue=0.0, TimeUsed=0, TimeIdle=7847300
-Worker 48: Fatigue=0.0, TimeUsed=0, TimeIdle=7581100
-Worker 49: Fatigue=0.0, TimeUsed=0, TimeIdle=7412600
-Worker 50: Fatigue=0.0, TimeUsed=0, TimeIdle=7328800
-Worker 51: Fatigue=0.0, TimeUsed=0, TimeIdle=7173400
-Worker 52: Fatigue=0.0, TimeUsed=0, TimeIdle=6945900
-Worker 53: Fatigue=0.0, TimeUsed=0, TimeIdle=6852500
-Worker 54: Fatigue=0.0, TimeUsed=0, TimeIdle=6814400
-Worker 55: Fatigue=0.0, TimeUsed=0, TimeIdle=6683300
-Worker 56: Fatigue=0.0, TimeUsed=0, TimeIdle=6348500
-Worker 57: Fatigue=0.0, TimeUsed=0, TimeIdle=6191300
-Worker 58: Fatigue=0.0, TimeUsed=0, TimeIdle=6137900
-Worker 59: Fatigue=0.0, TimeUsed=0, TimeIdle=6031100
-Worker 60: Fatigue=0.0, TimeUsed=0, TimeIdle=5804200
-Worker 61: Fatigue=0.0, TimeUsed=0, TimeIdle=5660900
-Worker 62: Fatigue=0.0, TimeUsed=0, TimeIdle=5665000
-Worker 63: Fatigue=0.0, TimeUsed=0, TimeIdle=5408600
-Worker 64: Fatigue=0.0, TimeUsed=0, TimeIdle=5170500
-Worker 65: Fatigue=0.0, TimeUsed=0, TimeIdle=5072700
-Worker 66: Fatigue=0.0, TimeUsed=0, TimeIdle=5091500
-Worker 67: Fatigue=0.0, TimeUsed=0, TimeIdle=4954200
-Worker 68: Fatigue=0.0, TimeUsed=0, TimeIdle=4639300
-Worker 69: Fatigue=0.0, TimeUsed=0, TimeIdle=4417000
-Worker 70: Fatigue=0.0, TimeUsed=0, TimeIdle=4363200
-Worker 71: Fatigue=0.0, TimeUsed=0, TimeIdle=4269400
-Worker 72: Fatigue=0.0, TimeUsed=0, TimeIdle=4027900
-Worker 73: Fatigue=0.0, TimeUsed=0, TimeIdle=3940700
-Worker 74: Fatigue=0.0, TimeUsed=0, TimeIdle=3909100
-Worker 75: Fatigue=0.0, TimeUsed=0, TimeIdle=3817400
-Worker 76: Fatigue=0.0, TimeUsed=0, TimeIdle=3669800
-Worker 77: Fatigue=0.0, TimeUsed=0, TimeIdle=3576000
-Worker 78: Fatigue=0.0, TimeUsed=0, TimeIdle=3608600
-Worker 79: Fatigue=0.0, TimeUsed=0, TimeIdle=3528200
-Worker 80: Fatigue=0.0, TimeUsed=0, TimeIdle=3354300
-Worker 81: Fatigue=0.0, TimeUsed=0, TimeIdle=3272500
-Worker 82: Fatigue=0.0, TimeUsed=0, TimeIdle=3307700
-Worker 83: Fatigue=0.0, TimeUsed=0, TimeIdle=3213300
-Worker 84: Fatigue=0.0, TimeUsed=0, TimeIdle=3003300
-Worker 85: Fatigue=0.0, TimeUsed=0, TimeIdle=2843500
-Worker 86: Fatigue=0.0, TimeUsed=0, TimeIdle=2798900
-Worker 87: Fatigue=0.0, TimeUsed=0, TimeIdle=2709900
-Worker 88: Fatigue=0.0, TimeUsed=0, TimeIdle=2570000
-Worker 89: Fatigue=0.0, TimeUsed=0, TimeIdle=2489200
-Worker 90: Fatigue=0.0, TimeUsed=0, TimeIdle=2463300
-Worker 91: Fatigue=0.0, TimeUsed=0, TimeIdle=2373900
-Worker 92: Fatigue=0.0, TimeUsed=0, TimeIdle=2221300
-Worker 93: Fatigue=0.0, TimeUsed=0, TimeIdle=2143800
-Worker 94: Fatigue=0.0, TimeUsed=0, TimeIdle=2123200
-Worker 95: Fatigue=0.0, TimeUsed=0, TimeIdle=2056300
-Worker 96: Fatigue=0.0, TimeUsed=0, TimeIdle=1889000
-Worker 97: Fatigue=0.0, TimeUsed=0, TimeIdle=1812200
-Worker 98: Fatigue=0.0, TimeUsed=0, TimeIdle=1749500
-Worker 99: Fatigue=53789.78481536704, TimeUsed=42000, TimeIdle=1626700
+Worker 0: Fatigue=4547.775835773645, TimeUsed=3300, TimeIdle=1903800
+Worker 1: Fatigue=800.3487941363037, TimeUsed=900, TimeIdle=1664000
+Worker 2: Fatigue=0.0, TimeUsed=0, TimeIdle=1517600
+Worker 3: Fatigue=1099.9850338853605, TimeUsed=1000, TimeIdle=1358200
 
 ]]></system-out>
   </testcase>
-  <testcase name="testInterruption" classname="spl.lae.LinearAlgebraEngineTest" time="0.082">
-    <system-out><![CDATA[Starting execution with 2 threads...
-Computation finished successfully in 33ms.
---- Worker Activity Report ---
-Worker 0: Fatigue=2091579.101199693, TimeUsed=1816700, TimeIdle=37362600
-Worker 1: Fatigue=2095238.8753493899, TimeUsed=2606100, TimeIdle=36389700
-
-]]></system-out>
-  </testcase>
-  <testcase name="testFourNestedMatrices" classname="spl.lae.LinearAlgebraEngineTest" time="0.009">
+  <testcase name="testTwiceNesting" classname="spl.lae.LinearAlgebraEngineTest" time="0.006">
     <system-out><![CDATA[Starting execution with 4 threads...
-Computation finished successfully in 2ms.
+Computation finished successfully in 0ms.
 --- Worker Activity Report ---
-Worker 0: Fatigue=27622.003035678877, TimeUsed=29100, TimeIdle=1946400
-Worker 1: Fatigue=5178.381499818081, TimeUsed=6100, TimeIdle=1653900
-Worker 2: Fatigue=0.0, TimeUsed=0, TimeIdle=1489400
-Worker 3: Fatigue=39959.42653011138, TimeUsed=27100, TimeIdle=1333700
-
-]]></system-out>
-  </testcase>
-  <testcase name="testTwiceNesting" classname="spl.lae.LinearAlgebraEngineTest" time="0.007">
-    <system-out><![CDATA[Starting execution with 4 threads...
-Computation finished successfully in 2ms.
---- Worker Activity Report ---
-Worker 0: Fatigue=14307.539601147244, TimeUsed=14000, TimeIdle=3132500
-Worker 1: Fatigue=8339.51856243507, TimeUsed=5700, TimeIdle=2389500
-Worker 2: Fatigue=37216.9880166477, TimeUsed=29400, TimeIdle=1878200
-Worker 3: Fatigue=6884.294953782644, TimeUsed=11400, TimeIdle=1731400
+Worker 0: Fatigue=22328.8952720319, TimeUsed=15000, TimeIdle=3602300
+Worker 1: Fatigue=778.6904140032582, TimeUsed=1100, TimeIdle=3284100
+Worker 2: Fatigue=51398.1805558753, TimeUsed=92400, TimeIdle=3007700
+Worker 3: Fatigue=2923.7893702074966, TimeUsed=2100, TimeIdle=2967100
 
 ]]></system-out>
   </testcase>
   <testcase name="testMatrixWithNullValues" classname="spl.lae.LinearAlgebraEngineTest" time="0.009">
     <system-out><![CDATA[Starting execution with 2 threads...
-Computation finished successfully in 1ms.
+Computation finished successfully in 0ms.
 --- Worker Activity Report ---
-Worker 0: Fatigue=14496.18056521825, TimeUsed=13100, TimeIdle=1345200
-Worker 1: Fatigue=0.0, TimeUsed=0, TimeIdle=1091000
+Worker 0: Fatigue=14158.88364986518, TimeUsed=14900, TimeIdle=1929700
+Worker 1: Fatigue=0.0, TimeUsed=0, TimeIdle=1624300
 
 ]]></system-out>
   </testcase>
-  <testcase name="testIncorrectFilePaths" classname="spl.lae.LinearAlgebraEngineTest" time="0.011">
+  <testcase name="testIncorrectFilePaths" classname="spl.lae.LinearAlgebraEngineTest" time="0.019">
     <system-out><![CDATA[Starting execution with 2 threads...
 Starting execution with 2 threads...
 ]]></system-out>
-    <system-err><![CDATA[An error occurred: Failed to read the input JSON file: C:\Users\User\AppData\Local\Temp\junit395425317700483176\ghost.json (The system cannot find the file specified)
-java.text.ParseException: Failed to read the input JSON file: C:\Users\User\AppData\Local\Temp\junit395425317700483176\ghost.json (The system cannot find the file specified)
+    <system-err><![CDATA[An error occurred: Failed to read the input JSON file: C:\Users\User\AppData\Local\Temp\junit569566313472607351\ghost.json (The system cannot find the file specified)
+java.text.ParseException: Failed to read the input JSON file: C:\Users\User\AppData\Local\Temp\junit569566313472607351\ghost.json (The system cannot find the file specified)
 	at parser.InputParser.parse(InputParser.java:23)
 	at spl.lae.Main.main(Main.java:31)
 	at spl.lae.LinearAlgebraEngineTest.testIncorrectFilePaths(LinearAlgebraEngineTest.java:268)
@@ -400,8 +400,8 @@ java.text.ParseException: Failed to read the input JSON file: C:\Users\User\AppD
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-An error occurred: C:\Users\User\AppData\Local\Temp\junit395425317700483176 (Access is denied)
-java.io.FileNotFoundException: C:\Users\User\AppData\Local\Temp\junit395425317700483176 (Access is denied)
+An error occurred: C:\Users\User\AppData\Local\Temp\junit569566313472607351 (Access is denied)
+java.io.FileNotFoundException: C:\Users\User\AppData\Local\Temp\junit569566313472607351 (Access is denied)
 	at java.base/java.io.FileOutputStream.open0(Native Method)
 	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
 	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
@@ -412,7 +412,7 @@ java.io.FileNotFoundException: C:\Users\User\AppData\Local\Temp\junit39542531770
 	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1081)
 	at parser.OutputWriter.write(OutputWriter.java:26)
 	at spl.lae.Main.main(Main.java:40)
-	at spl.lae.LinearAlgebraEngineTest.lambda$1(LinearAlgebraEngineTest.java:283)
+	at spl.lae.LinearAlgebraEngineTest.lambda$testIncorrectFilePaths$1(LinearAlgebraEngineTest.java:283)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3131)

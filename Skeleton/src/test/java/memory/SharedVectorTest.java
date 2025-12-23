@@ -177,7 +177,7 @@ class SharedVectorTest {
         SharedVector v1 = new SharedVector(new double[]{1, 2, 3}, VectorOrientation.ROW_MAJOR);
         SharedVector v2 = new SharedVector(new double[]{1, 2}, VectorOrientation.ROW_MAJOR);
         
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> v1.dot(v2));
+        assertThrows(IllegalArgumentException.class, () -> v1.dot(v2));
     }
 
     /**
@@ -259,192 +259,192 @@ class SharedVectorTest {
         assertEquals(15.0, v.get(1));
     }
 
-// =================================================================
-// 6. Councurrency TESTS
-// =================================================================
+    // =================================================================
+    // 6. Councurrency TESTS
+    // =================================================================
 
-/**
-* Test that two concurrent get call readers do not block each other.
-*/
-@Test
-void testTwoReaders() throws InterruptedException {
-    SharedVector v = new SharedVector(new double[]{5.0}, VectorOrientation.ROW_MAJOR);
-    
-    // Create two threads that just read
-    Thread t1 = new Thread(() -> v.get(0));
-    Thread t2 = new Thread(() -> v.get(0));
+    /**
+    * Test that two concurrent get call readers do not block each other.
+    */
+    @Test
+    void testTwoReaders() throws InterruptedException {
+        SharedVector v = new SharedVector(new double[]{5.0}, VectorOrientation.ROW_MAJOR);
+        
+        // Create two threads that just read
+        Thread t1 = new Thread(() -> v.get(0));
+        Thread t2 = new Thread(() -> v.get(0));
 
-    t1.start();
-    t2.start();
-    
-    t1.join();
-    t2.join();
-    
-    // If we reached here without a timeout, it means they didn't deadlock
-    assertEquals(5.0, v.get(0));
-}
+        t1.start();
+        t2.start();
+        
+        t1.join();
+        t2.join();
+        
+        // If we reached here without a timeout, it means they didn't deadlock
+        assertEquals(5.0, v.get(0));
+    }
 
-/**
- * Test that a get call reader waits for a writer to finish before proceeding.
- */
-@Test
-void testGetReaderWaitsForWriter() throws InterruptedException {
-    SharedVector v = new SharedVector(new double[]{1.0}, VectorOrientation.ROW_MAJOR);
-    SharedVector other = new SharedVector(new double[]{2.0}, VectorOrientation.ROW_MAJOR);
-    double[] result = new double[1];
+    /**
+     * Test that a get call reader waits for a writer to finish before proceeding.
+     */
+    @Test
+    void testGetReaderWaitsForWriter() throws InterruptedException {
+        SharedVector v = new SharedVector(new double[]{1.0}, VectorOrientation.ROW_MAJOR);
+        SharedVector other = new SharedVector(new double[]{2.0}, VectorOrientation.ROW_MAJOR);
+        double[] result = new double[1];
 
-    // Thread B: The Writer
-    Thread writer = new Thread(() -> {
-        v.writeLock(); // Lock the gate
-        try {
-            Thread.sleep(500); // Hold the lock for half a second
-            v.add(other);      // 1.0 + 2.0 = 3.0
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            v.writeUnlock();   // Unlock the gate
-        }
-    });
+        // Thread B: The Writer
+        Thread writer = new Thread(() -> {
+            v.writeLock(); // Lock the gate
+            try {
+                Thread.sleep(500); // Hold the lock for half a second
+                v.add(other);      // 1.0 + 2.0 = 3.0
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                v.writeUnlock();   // Unlock the gate
+            }
+        });
 
-    // Thread A: The Reader
-    Thread reader = new Thread(() -> {
-        try {
-            Thread.sleep(100); // Wait a tiny bit to make sure Writer locks first
-            result[0] = v.get(0); // This will "pause" here until writer finishes
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    });
+        // Thread A: The Reader
+        Thread reader = new Thread(() -> {
+            try {
+                Thread.sleep(100); // Wait a tiny bit to make sure Writer locks first
+                result[0] = v.get(0); // This will "pause" here until writer finishes
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-    writer.start();
-    reader.start();
+        writer.start();
+        reader.start();
 
-    writer.join();
-    reader.join();
+        writer.join();
+        reader.join();
 
-    // Result must be 3.0 because the reader was forced to wait for the addition
-    assertEquals(3.0, result[0], "Reader should have waited and seen 3.0");
-}
+        // Result must be 3.0 because the reader was forced to wait for the addition
+        assertEquals(3.0, result[0], "Reader should have waited and seen 3.0");
+    }
 
-/**
- * Test that a writer waits for a get call reader to finish before proceeding.
- */
-@Test
-void testWriterWaitsForGetReader() throws InterruptedException {
-    SharedVector v = new SharedVector(new double[]{10.0}, VectorOrientation.ROW_MAJOR);
-    long startTime = System.currentTimeMillis();
+    /**
+     * Test that a writer waits for a get call reader to finish before proceeding.
+     */
+    @Test
+    void testWriterWaitsForGetReader() throws InterruptedException {
+        SharedVector v = new SharedVector(new double[]{10.0}, VectorOrientation.ROW_MAJOR);
+        long startTime = System.currentTimeMillis();
 
-    // Thread A: The Reader
-    Thread reader = new Thread(() -> {
-        v.readLock(); 
-        try {
-            Thread.sleep(1000); // Hold the lock for a full second
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            v.readUnlock(); 
-        }
-    });
+        // Thread A: The Reader
+        Thread reader = new Thread(() -> {
+            v.readLock(); 
+            try {
+                Thread.sleep(1000); // Hold the lock for a full second
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                v.readUnlock(); 
+            }
+        });
 
-    // Thread B: The Writer
-    Thread writer = new Thread(() -> {
-        try {
-            Thread.sleep(100); // Ensure reader gets in first
-            v.writeLock();     // Should block here for ~900ms
-            v.negate();
-            v.writeUnlock();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    });
+        // Thread B: The Writer
+        Thread writer = new Thread(() -> {
+            try {
+                Thread.sleep(100); // Ensure reader gets in first
+                v.writeLock();     // Should block here for ~900ms
+                v.negate();
+                v.writeUnlock();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-    reader.start();
-    writer.start();
+        reader.start();
+        writer.start();
 
-    // While reader is sleeping (at 500ms mark), the writer SHOULD be blocked
-    // IF THE LOCK WORKS: This readLock will succeed (shared) and value is still 10.0
-    v.readLock();
-    double midValue = v.get(0);
-    v.readUnlock();
-    
-    assertEquals(10.0, midValue, "Writer should not have negated yet!");
+        // While reader is sleeping (at 500ms mark), the writer SHOULD be blocked
+        // IF THE LOCK WORKS: This readLock will succeed (shared) and value is still 10.0
+        v.readLock();
+        double midValue = v.get(0);
+        v.readUnlock();
+        
+        assertEquals(10.0, midValue, "Writer should not have negated yet!");
 
-    reader.join();
-    writer.join();
-    long duration = System.currentTimeMillis() - startTime;
+        reader.join();
+        writer.join();
+        long duration = System.currentTimeMillis() - startTime;
 
-    // IF THE LOCK WORKS: The total time must be at least 1000ms 
-    // because the writer had to wait for the reader's full sleep.
-    assertTrue(duration >= 1000, "Writer did not wait for the reader!");
-    assertEquals(-10.0, v.get(0));
-}
+        // IF THE LOCK WORKS: The total time must be at least 1000ms 
+        // because the writer had to wait for the reader's full sleep.
+        assertTrue(duration >= 1000, "Writer did not wait for the reader!");
+        assertEquals(-10.0, v.get(0));
+    }
 
-/**
- * Test that two parallel dot products with shared read locks do not block each other.
- *
- */
-@Test
-void testParallelDotProducts() throws InterruptedException {
-    SharedVector v1 = new SharedVector(new double[]{2.0, 2.0}, VectorOrientation.ROW_MAJOR);
-    SharedVector v2 = new SharedVector(new double[]{3.0, 3.0}, VectorOrientation.ROW_MAJOR);
-    SharedVector v3 = new SharedVector(new double[]{4.0, 4.0}, VectorOrientation.ROW_MAJOR);
+    /**
+     * Test that two parallel dot products with shared read locks do not block each other.
+     *
+     */
+    @Test
+    void testParallelDotProducts() throws InterruptedException {
+        SharedVector v1 = new SharedVector(new double[]{2.0, 2.0}, VectorOrientation.ROW_MAJOR);
+        SharedVector v2 = new SharedVector(new double[]{3.0, 3.0}, VectorOrientation.ROW_MAJOR);
+        SharedVector v3 = new SharedVector(new double[]{4.0, 4.0}, VectorOrientation.ROW_MAJOR);
 
-    v1.readLock(); // Thread A manually holds a read lock on v1
-    
-    // Thread B should still be able to perform a dot product using v1
-    double[] resultB = new double[1];
-    Thread threadB = new Thread(() -> {
-        resultB[0] = v1.dot(v3); // This requires another readLock on v1
-    });
+        v1.readLock(); // Thread A manually holds a read lock on v1
+        
+        // Thread B should still be able to perform a dot product using v1
+        double[] resultB = new double[1];
+        Thread threadB = new Thread(() -> {
+            resultB[0] = v1.dot(v3); // This requires another readLock on v1
+        });
 
-    threadB.start();
-    threadB.join(500); // Should finish almost instantly
-    
-    assertEquals(16.0, resultB[0], "Read-Read should be parallel and not block");
-    v1.readUnlock();
-}
+        threadB.start();
+        threadB.join(500); // Should finish almost instantly
+        
+        assertEquals(16.0, resultB[0], "Read-Read should be parallel and not block");
+        v1.readUnlock();
+    }
 
-@Test
-void testDotWaitsForAdd() throws InterruptedException {
-    SharedVector v1 = new SharedVector(new double[]{1.0, 1.0}, VectorOrientation.ROW_MAJOR);
-    SharedVector v2 = new SharedVector(new double[]{1.0, 1.0}, VectorOrientation.ROW_MAJOR);
-    SharedVector v3 = new SharedVector(new double[]{1.0, 1.0}, VectorOrientation.ROW_MAJOR);
-    long startTime = System.currentTimeMillis();
+    @Test
+    void testDotWaitsForAdd() throws InterruptedException {
+        SharedVector v1 = new SharedVector(new double[]{1.0, 1.0}, VectorOrientation.ROW_MAJOR);
+        SharedVector v2 = new SharedVector(new double[]{1.0, 1.0}, VectorOrientation.ROW_MAJOR);
+        SharedVector v3 = new SharedVector(new double[]{1.0, 1.0}, VectorOrientation.ROW_MAJOR);
+        long startTime = System.currentTimeMillis();
 
-    // Thread B: The Writer (Modifying v2)
-    Thread threadB = new Thread(() -> {
-        v2.writeLock(); // Point 1: Acquire writeLock
-        try {
-            Thread.sleep(1000); // Point 3: Simulate heavy addition
-            v2.add(v3);         // v2 becomes [2.0, 2.0]
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            v2.writeUnlock();   // Point 4: Release
-        }
-    });
+        // Thread B: The Writer (Modifying v2)
+        Thread threadB = new Thread(() -> {
+            v2.writeLock(); // Point 1: Acquire writeLock
+            try {
+                Thread.sleep(1000); // Point 3: Simulate heavy addition
+                v2.add(v3);         // v2 becomes [2.0, 2.0]
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                v2.writeUnlock();   // Point 4: Release
+            }
+        });
 
-    // Thread A: The Reader (Dot product)
-    double[] resultA = new double[1];
-    Thread threadA = new Thread(() -> {
-        try {
-            Thread.sleep(100); // Ensure Thread B locks first
-            // Point 2: v1.dot(v2) stops at D1 (v2.readLock)
-            resultA[0] = v1.dot(v2); 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    });
+        // Thread A: The Reader (Dot product)
+        double[] resultA = new double[1];
+        Thread threadA = new Thread(() -> {
+            try {
+                Thread.sleep(100); // Ensure Thread B locks first
+                // Point 2: v1.dot(v2) stops at D1 (v2.readLock)
+                resultA[0] = v1.dot(v2); 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-    threadB.start();
-    threadA.start();
+        threadB.start();
+        threadA.start();
 
-    threadA.join();
-    long duration = System.currentTimeMillis() - startTime;
+        threadA.join();
+        long duration = System.currentTimeMillis() - startTime;
 
-    // The dot product must wait for the full 1000ms addition to finish
-    assertTrue(duration >= 1000, "Dot product did not wait for Add to finish");
-    assertEquals(4.0, resultA[0], "Dot result should use post-addition values");
-}
+        // The dot product must wait for the full 1000ms addition to finish
+        assertTrue(duration >= 1000, "Dot product did not wait for Add to finish");
+        assertEquals(4.0, resultA[0], "Dot result should use post-addition values");
+    }
 
 }

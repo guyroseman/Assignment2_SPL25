@@ -97,6 +97,9 @@ public class SharedVector {
     }
 
     public double dot(SharedVector other) {
+        if (this.vector.length!=other.vector.length) {
+            throw new IllegalArgumentException("Vectors must be of the same length for dot product.");
+        }
         other.readLock(); 
         try{
             double sum = 0;

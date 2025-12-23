@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="memory.SharedVectorTest" time="2.583" tests="25" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="scheduling.TiredThreadTest" time="1.162" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -59,29 +59,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testWriterWaitsForGetReader" classname="memory.SharedVectorTest" time="1.01"/>
-  <testcase name="testDot_Infinity" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testConstructor_RegularVector" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testVecMatMul_DimensionMismatch_ThrowsException" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testVecMatMul_NullMatrix_ThrowsException" classname="memory.SharedVectorTest" time="0.011"/>
-  <testcase name="testVecMatMul_RegularRM" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testNegate_MixedSigns" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testConstructor_EmptyArray_CreatedSuccessfully" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testDot_Standard" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testGet_ValidIndex" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testConstructor_ScalarVector_CreatedSuccessfully" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testConstructor_NullVector_ThrowsException" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testGet_NegativeIndex_ThrowsException" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testDot_SelfReference" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testTwoReaders" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testDot_NullOther_ThrowsException" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testDotWaitsForAdd" classname="memory.SharedVectorTest" time="1.021"/>
-  <testcase name="testVecMatMul_Scalaric" classname="memory.SharedVectorTest" time="0.0"/>
-  <testcase name="testGetReaderWaitsForWriter" classname="memory.SharedVectorTest" time="0.512"/>
-  <testcase name="testDot_DimensionMismatch_ThisLonger_ThrowsException" classname="memory.SharedVectorTest" time="0.002"/>
-  <testcase name="testGet_IndexOutOfBounds_ThrowsException" classname="memory.SharedVectorTest" time="0.005"/>
-  <testcase name="testNegate_ZeroHandling" classname="memory.SharedVectorTest" time="0.002"/>
-  <testcase name="testDot_Scalaric" classname="memory.SharedVectorTest" time="0.001"/>
-  <testcase name="testParallelDotProducts" classname="memory.SharedVectorTest" time="0.002"/>
-  <testcase name="testNegate_RegularValues" classname="memory.SharedVectorTest" time="0.002"/>
+  <testcase name="testRunLogicWithPoisonPill" classname="scheduling.TiredThreadTest" time="0.003"/>
+  <testcase name="testRun_InterruptionWhileIdle" classname="scheduling.TiredThreadTest" time="0.213"/>
+  <testcase name="testStressTest" classname="scheduling.TiredThreadTest" time="0.217"/>
+  <testcase name="testShutdown_UnableToAddPoisonPill" classname="scheduling.TiredThreadTest" time="0.205"/>
+  <testcase name="testRun_TimeCorrectnessOnError" classname="scheduling.TiredThreadTest" time="0.509">
+    <system-err><![CDATA[java.lang.RuntimeException: Crash!
+	at scheduling.TiredThreadTest.lambda$testRun_TimeCorrectnessOnError$10(TiredThreadTest.java:177)
+	at scheduling.TiredThread.run(TiredThread.java:98)
+]]></system-err>
+  </testcase>
+  <testcase name="testNewTask_WhenHandoffFull_ThrowsException" classname="scheduling.TiredThreadTest" time="0.006"/>
+  <testcase name="testShutdown_Interruption" classname="scheduling.TiredThreadTest" time="0.005"/>
 </testsuite>

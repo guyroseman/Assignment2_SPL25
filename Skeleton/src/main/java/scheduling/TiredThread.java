@@ -78,35 +78,34 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
     @Override
     public void run() {
        while(alive.get()){
-        try {
-            Runnable task = handoff.take();
-            
-            //Calculate long delta of idle time and update time idle
-            long idleDuration = System.nanoTime() - idleStartTime.get();
-            timeIdle.addAndGet(idleDuration);
+            try {
+                Runnable task = handoff.take();
+                
+                //Calculate long delta of idle time and update time idle
+                long idleDuration = System.nanoTime() - idleStartTime.get();
+                timeIdle.addAndGet(idleDuration);
 
-            // Check if shutdown
-            if(task == POISON_PILL){
+                // Check if shutdown
+                if(task == POISON_PILL){
+                    alive.set(false);
+                    this.timeIdle.set(this.timeIdle.get()); // update idle time before exit
+                    break;
+                }
+
+                // Execute task and measure time used
+                busy.set(true);
+                try {
+                    task.run(); // Execute the task
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                busy.set(false);
+
+            } catch (InterruptedException e) {
                 alive.set(false);
-                this.timeIdle.set(this.timeIdle.get()); // update idle time before exit
-                break;
+                // interrupt current thread if unable to take task
+                Thread.currentThread().interrupt();
             }
-
-            // Excute task and measure time used
-            busy.set(true);
-            long startTime = System.nanoTime();
-            task.run();
-            long endTime = System.nanoTime();
-            busy.set(false);
-
-            // update time used + idele start time 
-            timeUsed.addAndGet(endTime - startTime);
-            idleStartTime.set(endTime);
-
-        } catch (InterruptedException e) {
-            // interrupt current thread if unable to take task
-           Thread.currentThread().interrupt();
-        }
        }
     }
 
@@ -117,5 +116,17 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
         else if (this.getFatigue() < o.getFatigue())
             return -1;
         return 0;
+    }
+
+    //Helping Method: Allows external updates to execution time
+    /**
+     * Updates the total time used by this worker.
+     * This is called by the Executor immediately after a task finishes,
+     * ensuring the fatigue score is up-to-date before re-queueing.
+     */
+    public void addTime(long duration) {
+        this.timeUsed.addAndGet(duration);
+        // Reset the idle start time because the worker just finished working
+        this.idleStartTime.set(System.nanoTime());
     }
 }

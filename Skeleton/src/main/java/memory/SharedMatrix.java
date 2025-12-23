@@ -17,7 +17,7 @@ public class SharedMatrix {
         // Initialize vectors from the provided matrix
         this.vectors = new SharedVector[matrix.length];
         for (int i = 0; i < matrix.length; i++) {
-            this.vectors[i] = new SharedVector(matrix[i], VectorOrientation.ROW_MAJOR);
+            this.vectors[i] = new SharedVector(matrix[i].clone(), VectorOrientation.ROW_MAJOR);
         }
     }
 
@@ -42,7 +42,7 @@ public class SharedMatrix {
             SharedVector[] newVectors = new SharedVector[matrix.length];
 
             for (int i = 0; i < matrix.length; i++) {
-                double[] row = matrix[i];
+                double[] row = matrix[i].clone();
                 newVectors[i] = new SharedVector(row, VectorOrientation.ROW_MAJOR);
             }
 

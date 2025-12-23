@@ -13,6 +13,9 @@ public class TiredExecutor {
     private final AtomicInteger inFlight = new AtomicInteger(0);
 
     public TiredExecutor(int numThreads) {
+        if (numThreads<1) {
+            throw new IllegalArgumentException("numThreads must be at least 1");
+        }
         workers = new TiredThread[numThreads];
         // iterate to create and start workers
         for (int i = 0; i < numThreads; i++) {
@@ -30,9 +33,15 @@ public class TiredExecutor {
             inFlight.incrementAndGet();
             // assign task to the worker
             worker.newTask(() -> {
+                //Start measuring time
+                long start = System.nanoTime();
                 try {
                     task.run();
                 } finally {
+                    // Stop measuring time
+                    long end = System.nanoTime();
+                    // Update the worker's fatigue before returning to the queue
+                    worker.addTime(end - start);
                     // after task completion, put the worker back to idle heap
                     idleMinHeap.add(worker);
                     // decrease inFlight counter and notify if all tasks are done
