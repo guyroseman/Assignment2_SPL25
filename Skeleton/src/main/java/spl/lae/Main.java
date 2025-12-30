@@ -22,7 +22,6 @@ public class Main {
 
             // Initialize Components
             InputParser parser = new InputParser();
-            engine = new LinearAlgebraEngine(numThreads);
 
             System.out.println("Starting execution with " + numThreads + " threads...");
             long startTime = System.currentTimeMillis();
@@ -32,6 +31,9 @@ public class Main {
             
             //Adding associative nesting optimization
             recursiveAssociativeNesting(rootNode);
+
+            // Initialize the Linear Algebra Engine with the specified number of threads
+            engine = new LinearAlgebraEngine(numThreads);
 
             // Run the engine to process the rootNode
             ComputationNode resultNode = engine.run(rootNode);
@@ -45,6 +47,9 @@ public class Main {
             
             // Print the internal worker report
             System.out.println(engine.getWorkerReport());
+            // Calculate and print the fairness score
+            System.out.println("Fairness Score: " + get_fairness_score(engine)+"\n");
+            
 
         } catch (Exception e) {
             System.err.println("An error occurred: " + e.getMessage());
@@ -79,5 +84,56 @@ public class Main {
 
         // Fix the current node (after children are already arranged)
         node.associativeNesting();
+    }
+
+
+    private static double get_fairness_score(LinearAlgebraEngine engine) {
+        // 1. Get the raw report string
+        String report = engine.getWorkerReport();
+        if (report == null || report.isEmpty()) {
+            return 0.0;
+        }
+
+        java.util.List<Double> fatigueValues = new java.util.ArrayList<>();
+        
+        // 2. Parse the string line by line
+        // Format: "Worker 0: Fatigue=123.45, TimeUsed=..."
+        String[] lines = report.split("\n");
+        for (String line : lines) {
+            if (line.contains("Fatigue=")) {
+                try {
+                    // Extract value between "Fatigue=" and ","
+                    int startIndex = line.indexOf("Fatigue=") + 8; // length of "Fatigue=" is 8
+                    int endIndex = line.indexOf(",", startIndex);
+                    
+                    if (startIndex > 7 && endIndex > startIndex) {
+                        String valStr = line.substring(startIndex, endIndex);
+                        fatigueValues.add(Double.parseDouble(valStr));
+                    }
+                } catch (Exception e) {
+                    // Ignore parsing errors for header lines or malformed lines
+                }
+            }
+        }
+
+        if (fatigueValues.isEmpty()) {
+            return 0.0;
+        }
+
+        // 3. Calculate Average (Mean)
+        double sum = 0.0;
+        for (double f : fatigueValues) {
+            sum += f;
+        }
+        double mean = sum / fatigueValues.size();
+
+        // 4. Calculate Sum of Squared Deviations
+        double sumSquaredDeviations = 0.0;
+        for (double f : fatigueValues) {
+            double deviation = f - mean;
+            sumSquaredDeviations += (deviation * deviation);
+        }
+
+        return sumSquaredDeviations;
     }
 }

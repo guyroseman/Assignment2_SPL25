@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: scheduling.TiredThreadTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.162 s -- in scheduling.TiredThreadTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.997 s -- in scheduling.TiredThreadTest

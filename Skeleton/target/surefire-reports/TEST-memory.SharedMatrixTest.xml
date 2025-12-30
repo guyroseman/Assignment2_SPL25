@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="memory.SharedMatrixTest" time="0.44" tests="29" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="memory.SharedMatrixTest" time="0.448" tests="29" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire11599343107454345667\surefirebooter-20251223153840838_3.jar C:\Users\User\AppData\Local\Temp\surefire11599343107454345667 2025-12-23T15-38-40_633-jvmRun1 surefire-20251223153840838_1tmp surefire_0-20251223153840838_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire14811291301548405881\surefirebooter-20251230125006347_3.jar C:\Users\User\AppData\Local\Temp\surefire14811291301548405881 2025-12-30T12-50-06_228-jvmRun1 surefire-20251230125006347_1tmp surefire_0-20251230125006347_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\test-classes;C:\Users\User\Desktop\SPL Projects\project2\Assignment2_SPL25\Skeleton\target\classes;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\User\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\User\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\User\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\User\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire11599343107454345667\surefirebooter-20251223153840838_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire14811291301548405881\surefirebooter-20251230125006347_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.1+11-39"/>
@@ -59,33 +59,33 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testConstructor_NullInput" classname="memory.SharedMatrixTest" time="0.03"/>
-  <testcase name="testGet_OutOfBounds" classname="memory.SharedMatrixTest" time="0.007"/>
-  <testcase name="testConcurrencyBlocking" classname="memory.SharedMatrixTest" time="0.112"/>
-  <testcase name="testConstructor_DeepCopyIdentity" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testLoadNull" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testGetOrientation_Empty" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testStructuralUpdate" classname="memory.SharedMatrixTest" time="0.004"/>
-  <testcase name="testReadRowMajor_Empty" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testGet_ValidIndex" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testReadEmpty" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testLoadColNull" classname="memory.SharedMatrixTest" time="0.004"/>
-  <testcase name="testReadSnapshot" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testConstructor_Scalar" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testReadFromRowStorage" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testLoadWaitsForLocks" classname="memory.SharedMatrixTest" time="0.106"/>
+  <testcase name="testConstructor_NullInput" classname="memory.SharedMatrixTest" time="0.017"/>
+  <testcase name="testGet_OutOfBounds" classname="memory.SharedMatrixTest" time="0.003"/>
+  <testcase name="testConcurrencyBlocking" classname="memory.SharedMatrixTest" time="0.107"/>
+  <testcase name="testConstructor_DeepCopyIdentity" classname="memory.SharedMatrixTest" time="0.005"/>
+  <testcase name="testLoadNull" classname="memory.SharedMatrixTest" time="0.003"/>
+  <testcase name="testGetOrientation_Empty" classname="memory.SharedMatrixTest" time="0.002"/>
+  <testcase name="testStructuralUpdate" classname="memory.SharedMatrixTest" time="0.003"/>
+  <testcase name="testReadRowMajor_Empty" classname="memory.SharedMatrixTest" time="0.002"/>
+  <testcase name="testGet_ValidIndex" classname="memory.SharedMatrixTest" time="0.002"/>
+  <testcase name="testReadEmpty" classname="memory.SharedMatrixTest" time="0.001"/>
+  <testcase name="testLoadColNull" classname="memory.SharedMatrixTest" time="0.002"/>
+  <testcase name="testReadSnapshot" classname="memory.SharedMatrixTest" time="0.003"/>
+  <testcase name="testConstructor_Scalar" classname="memory.SharedMatrixTest" time="0.001"/>
+  <testcase name="testReadFromRowStorage" classname="memory.SharedMatrixTest" time="0.002"/>
+  <testcase name="testLoadWaitsForLocks" classname="memory.SharedMatrixTest" time="0.114"/>
   <testcase name="testDataIsolation" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testGetOrientation" classname="memory.SharedMatrixTest" time="0.002"/>
+  <testcase name="testGetOrientation" classname="memory.SharedMatrixTest" time="0.0"/>
   <testcase name="testReadFromColStorage" classname="memory.SharedMatrixTest" time="0.0"/>
   <testcase name="testScalarColumnLoad" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testReadRowMajor_FromColumnStorage" classname="memory.SharedMatrixTest" time="0.002"/>
-  <testcase name="testStressTranspose" classname="memory.SharedMatrixTest" time="0.002"/>
-  <testcase name="testTransposeLogic" classname="memory.SharedMatrixTest" time="0.0"/>
+  <testcase name="testReadRowMajor_FromColumnStorage" classname="memory.SharedMatrixTest" time="0.0"/>
+  <testcase name="testStressTranspose" classname="memory.SharedMatrixTest" time="0.003"/>
+  <testcase name="testTransposeLogic" classname="memory.SharedMatrixTest" time="0.001"/>
   <testcase name="testLockHelpers_NullSafety" classname="memory.SharedMatrixTest" time="0.0"/>
   <testcase name="testIsolation" classname="memory.SharedMatrixTest" time="0.0"/>
-  <testcase name="testReadRowMajor_Standard" classname="memory.SharedMatrixTest" time="0.006"/>
-  <testcase name="testLength" classname="memory.SharedMatrixTest" time="0.001"/>
-  <testcase name="testRepeatedLoadStress" classname="memory.SharedMatrixTest" time="0.006"/>
-  <testcase name="testLocking_SnapshotSafety" classname="memory.SharedMatrixTest" time="0.105"/>
+  <testcase name="testReadRowMajor_Standard" classname="memory.SharedMatrixTest" time="0.0"/>
+  <testcase name="testLength" classname="memory.SharedMatrixTest" time="0.011"/>
+  <testcase name="testRepeatedLoadStress" classname="memory.SharedMatrixTest" time="0.005"/>
+  <testcase name="testLocking_SnapshotSafety" classname="memory.SharedMatrixTest" time="0.11"/>
   <testcase name="testLoadEmpty" classname="memory.SharedMatrixTest" time="0.0"/>
 </testsuite>
