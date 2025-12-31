@@ -17,38 +17,37 @@ public class SharedVector {
     }
 
     public double get(int index) {
-        readLock();
+        // Acquire read lock to ensure consistent read 
+        readLock(); 
         try{
             if(index < 0 || index >= this.vector.length){
                 throw new IllegalArgumentException("Index out of bounds");
             }
             return this.vector[index];
         }finally{
-            readUnlock();
+            readUnlock(); // read finished then unlock in finally block to make sure unlock always happens
         }
     }
 
     public int length() {
-        // Acquire read lock
+        // Acquire read lock in order to ensure consistent read
         readLock();
         try{
             return this.vector.length;
         }
-        // Release read lock
         finally{
-            readUnlock();
+            readUnlock(); // read finished then unlock in finally block to make sure unlock always happens
         }
     }
 
     public VectorOrientation getOrientation() {
-        // Acquire read lock
+        // Acquire read lock to ensure consistent read
         readLock();
         try{
             return this.orientation;
         }
-        // Release read lock
         finally{
-            readUnlock();
+            readUnlock(); // read finished then unlock in finally block to make sure unlock always happens
         }
     }
 
@@ -77,14 +76,14 @@ public class SharedVector {
     }
 
     public void add(SharedVector other) {
-        other.readLock();
+        other.readLock(); // lock other to ennsure consistent reading 
         try {
             for (int i = 0; i < vector.length; i++) {
                 // Access to this.vector[i] is safe because the caller holds the WRITE LOCK
                 this.vector[i] += other.vector[i];
             }
         } finally {
-            other.readUnlock();
+            other.readUnlock(); // unlock read lock in finally block to make sure unlock always happens
         }
     }
 
@@ -100,7 +99,7 @@ public class SharedVector {
         if (this.vector.length!=other.vector.length) {
             throw new IllegalArgumentException("Vectors must be of the same length for dot product.");
         }
-        other.readLock(); 
+        other.readLock(); //lock other to ennsure consistent reading 
         try{
             double sum = 0;
 
@@ -111,7 +110,7 @@ public class SharedVector {
             return sum;
 
         }finally{
-            other.readUnlock();
+            other.readUnlock(); // unlock read lock in finally block to make sure unlock always happens
         }
     }
 

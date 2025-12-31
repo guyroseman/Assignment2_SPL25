@@ -88,13 +88,17 @@ public class LinearAlgebraEngine {
             final SharedVector sourceVector = rightMatrix.get(i);
             
             Runnable task = () -> {
-                // We must acquire the Write Lock on the target before calling the method
+                // We must acquire the Write Lock on the target before calling the method 
+                // Since on each iterarion we write into the left (target) vector 
+                // and there is no internal write lock for the target vector only readlock for other
                 targetVector.writeLock();
                 try {
                     // .add() internally acquires Read Lock on sourceVector
                     targetVector.add(sourceVector);
                 } finally {
-                    targetVector.writeUnlock();
+                    // Release locks on the old vectors to allow others to access vector 
+                    // since job is over on this vector upon addition
+                    targetVector.writeUnlock(); 
                 }
             };
             tasks.add(task);
@@ -115,16 +119,17 @@ public class LinearAlgebraEngine {
                 // We must acquire the Write Lock on the target before calling the method
                 targetVector.writeLock();
                 try {
-                    // .vecMatMul() internally acquires Read Lock on sourceMatrix
+                    // .vecMatMul() internally acquires Read Lock on sourceMatrix within the recalled function of .dot()
                     targetVector.vecMatMul(sourceMatrix);
                 } finally {
+                    // Release locks on the targer vector to allow others to access it 
+                    // since job is over on this vector upon multipication and there is no internal lock release in this method
                     targetVector.writeUnlock();
                 }
             };
             tasks.add(task);
         }
             return tasks;
-        // check read lock responsibillity upon "source" matrix in vecmatmul
     }
 
     public List<Runnable> createNegateTasks() {
@@ -135,10 +140,14 @@ public class LinearAlgebraEngine {
             final SharedVector targetVector = leftMatrix.get(i);
 
             Runnable task = () -> {
+                // We must acquire the Write Lock on the target before calling negate method
+                // Since there is no internal write lock for target vector in this method
                 targetVector.writeLock();
                 try{
                     targetVector.negate();
                 }finally{
+                    // Release lock on the target vector to allow others to access it
+                    // since job is over on this vector upon negation and there is no internal lock release in this method
                     targetVector.writeUnlock();
                 }
             };
@@ -155,10 +164,14 @@ public class LinearAlgebraEngine {
             final SharedVector targetVector = leftMatrix.get(i);
 
             Runnable task = () -> {
+                // Lock the target vector for writing before transposing
+                // Since there is no internal write lock for target vector in this method
                 targetVector.writeLock();
                 try{
                     targetVector.transpose();
                 }finally{
+                    // Release lock on the target vector to allow others to access it
+                    // since job is over on this vector upon transpose and there is no internal lock release in this method
                     targetVector.writeUnlock();
                 }
             };

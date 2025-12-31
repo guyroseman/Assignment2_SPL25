@@ -34,7 +34,8 @@ public class SharedMatrix {
             return;
         }
 
-        // Lock
+        // Lock all old vectors for writing
+        // This ensures no other thread is reading/writing them while we swap
         acquireAllVectorWriteLocks(oldVectors);
         try {
 
@@ -50,8 +51,7 @@ public class SharedMatrix {
             this.vectors = newVectors;
 
         } finally {
-            // Release locks on the old vectors
-            releaseAllVectorWriteLocks(oldVectors);
+            releaseAllVectorWriteLocks(oldVectors); // Release locks on the old vectors to allow others to access them
         }
     }
 
@@ -68,7 +68,8 @@ public class SharedMatrix {
             return;
         }
 
-        // Lock
+        // Lock all old vectors for writing
+        // This ensures no other thread is reading/writing them while we swap
         acquireAllVectorWriteLocks(oldVectors);
         try {
 
@@ -93,8 +94,7 @@ public class SharedMatrix {
             this.vectors = newVectors;
 
         } finally {
-            // Release locks on the old vectors
-            releaseAllVectorWriteLocks(oldVectors);
+            releaseAllVectorWriteLocks(oldVectors); // Release locks on the old vectors to allow others to access them
         }
     }
 
@@ -107,7 +107,8 @@ public class SharedMatrix {
             return new double[0][0];
         }       
 
-        // Lock
+        // Lock all temppVectors since they hold a pointer to the orginal matrix's vectors
+        // this ensures consistent reading
         acquireAllVectorReadLocks(tempVectors);
         try {
 
@@ -148,7 +149,7 @@ public class SharedMatrix {
             return result;
 
         } finally {
-            releaseAllVectorReadLocks(tempVectors);
+            releaseAllVectorReadLocks(tempVectors); // Release locks on the vectors to allow others to access them 
         } 
     }
 
