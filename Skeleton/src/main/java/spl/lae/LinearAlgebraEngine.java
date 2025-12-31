@@ -117,6 +117,8 @@ public class LinearAlgebraEngine {
 
             Runnable task = () -> {
                 // We must acquire the Write Lock on the target before calling the method
+                // Since on each iterarion we write into the left (target) vector
+                // and there is no internal write lock for the target vector in this method
                 targetVector.writeLock();
                 try {
                     // .vecMatMul() internally acquires Read Lock on sourceMatrix within the recalled function of .dot()

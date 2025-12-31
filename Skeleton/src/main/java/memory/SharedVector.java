@@ -17,37 +17,34 @@ public class SharedVector {
     }
 
     public double get(int index) {
-        // Acquire read lock to ensure consistent read 
-        readLock(); 
+        readLock(); // Acquire read lock to ensure consistent read 
         try{
             if(index < 0 || index >= this.vector.length){
                 throw new IllegalArgumentException("Index out of bounds");
             }
             return this.vector[index];
         }finally{
-            readUnlock(); // read finished then unlock in finally block to make sure unlock always happens
+            readUnlock(); // Read finished then unlock in finally block to make sure unlock always happens so other threads can access it
         }
     }
 
     public int length() {
-        // Acquire read lock in order to ensure consistent read
-        readLock();
+        readLock(); // Acquire read lock in order to ensure consistent read
         try{
             return this.vector.length;
         }
         finally{
-            readUnlock(); // read finished then unlock in finally block to make sure unlock always happens
+            readUnlock(); // Read finished then unlock in finally block to make sure unlock always happens so other threads can access it
         }
     }
 
     public VectorOrientation getOrientation() {
-        // Acquire read lock to ensure consistent read
-        readLock();
+        readLock(); // Acquire read lock to ensure consistent read
         try{
             return this.orientation;
         }
         finally{
-            readUnlock(); // read finished then unlock in finally block to make sure unlock always happens
+            readUnlock(); // Read finished then unlock in finally block to make sure unlock always happens so other threads can access it
         }
     }
 
@@ -76,14 +73,16 @@ public class SharedVector {
     }
 
     public void add(SharedVector other) {
-        other.readLock(); // lock other to ennsure consistent reading 
+        // lock other to ensure consistent reading
+        // Access to this.vector is safe because the caller holds the WRITE LOCK
+        other.readLock(); 
         try {
             for (int i = 0; i < vector.length; i++) {
                 // Access to this.vector[i] is safe because the caller holds the WRITE LOCK
                 this.vector[i] += other.vector[i];
             }
         } finally {
-            other.readUnlock(); // unlock read lock in finally block to make sure unlock always happens
+            other.readUnlock(); // unlock read lock in finally block to make sure unlock always happens so other threads can access it
         }
     }
 
@@ -99,7 +98,9 @@ public class SharedVector {
         if (this.vector.length!=other.vector.length) {
             throw new IllegalArgumentException("Vectors must be of the same length for dot product.");
         }
-        other.readLock(); //lock other to ennsure consistent reading 
+        // lock other to ensure consistent reading
+        // Access to this.vector is safe because the caller holds the WRITE LOCK
+        other.readLock(); 
         try{
             double sum = 0;
 
@@ -110,7 +111,7 @@ public class SharedVector {
             return sum;
 
         }finally{
-            other.readUnlock(); // unlock read lock in finally block to make sure unlock always happens
+            other.readUnlock(); // unlock read lock in finally block to make sure unlock always happens so other threads can access it
         }
     }
 

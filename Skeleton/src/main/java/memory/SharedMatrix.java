@@ -107,7 +107,7 @@ public class SharedMatrix {
             return new double[0][0];
         }       
 
-        // Lock all temppVectors since they hold a pointer to the orginal matrix's vectors
+        // Lock all tempVectors for reading since they hold a pointer to the current state of the matrix with
         // this ensures consistent reading
         acquireAllVectorReadLocks(tempVectors);
         try {
